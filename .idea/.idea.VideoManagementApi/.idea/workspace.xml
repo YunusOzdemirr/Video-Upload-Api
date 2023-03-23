@@ -9,15 +9,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DataAccess/EntityFramework/VideoContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/CommentConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/LikeConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/VideoConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/BaseEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Comment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Like.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Video.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/AdvertisementConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/CategoryConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/SeoConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/VideoAndCategoryConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/CommentDtos/CommentAddDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/CommentDtos/CommentDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/SeoDtos/SeoAddDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/VideoDtos/VideoAddDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/VideoDtos/VideoDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/VideoDtos/VideoUpdateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Enums/ResultStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Advertisement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Category.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Seo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/VideoAndCategory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Abstract/ICommentService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Abstract/IUploadService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/CommentService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/UploadService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utilities/FileUpload.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utilities/IResult.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utilities/Result.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/EntityFramework/VideoContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/EntityFramework/VideoContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/BaseEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Comment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Video.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Video.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VideoManagementApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/VideoManagementApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +123,8 @@
       <option name="presentableId" value="Default" />
       <updated>1679484822171</updated>
       <workItem from="1679484825976" duration="2304000" />
-      <workItem from="1679553780727" duration="4056000" />
+      <workItem from="1679553780727" duration="7190000" />
+      <workItem from="1679608707894" duration="4365000" />
     </task>
     <servers />
   </component>

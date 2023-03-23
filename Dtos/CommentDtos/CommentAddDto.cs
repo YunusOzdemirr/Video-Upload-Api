@@ -1,11 +1,9 @@
-namespace VideoManagementApi.Models;
+namespace VideoManagementApi.Dtos.CommentDtos;
 
-public abstract class Comment : BaseEntity
+public abstract class CommentAddDto
 {
     public string IpAddress { get; set; }
     public string Name { get; set; }
     public string Content { get; set; }
-    public bool IsApproved { get; set; }
     public int VideoId { get; set; }
-    public Video Video { get; set; }
 }

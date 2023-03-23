@@ -6,15 +6,22 @@ namespace VideoManagementApi.DataAccess.EntityFramework;
 
 public class VideoContext : DbContext
 {
-    DbSet<Video> Videos { get; set; }
-    DbSet<Comment> Comments { get; set; }
-    DbSet<Like> Likes { get; set; }
+    public DbSet<Video> Videos { get; set; }
+    public DbSet<Comment> Comments { get; set; }
+    public DbSet<Like> Likes { get; set; }
+    public DbSet<Advertisement> Advertisements { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<VideoAndCategory> VideoAndCategories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new CommentConfiguration());
         modelBuilder.ApplyConfiguration(new LikeConfiguration());
         modelBuilder.ApplyConfiguration(new VideoConfiguration());
+        modelBuilder.ApplyConfiguration(new SeoConfiguration());
+        modelBuilder.ApplyConfiguration(new AdvertisementConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new VideoAndCategoryConfiguration());
         base.OnModelCreating(modelBuilder);
     }
 

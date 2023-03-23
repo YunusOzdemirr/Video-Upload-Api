@@ -1,6 +1,8 @@
-namespace VideoManagementApi.Models;
+using VideoManagementApi.Models;
 
-public class Video : BaseEntity
+namespace VideoManagementApi.Dtos.VideoDtos;
+
+public class VideoDto
 {
     public string Title { get; set; }
     public string Description { get; set; }
@@ -10,5 +12,4 @@ public class Video : BaseEntity
     public ICollection<Seo> Seos { get; set; }
     public ICollection<Like> Likes { get; set; }
     public ICollection<Comment> Comments { get; set; }
-    public ICollection<VideoAndCategory> VideoAndCategories { get; set; }
 }

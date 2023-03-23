@@ -7,4 +7,5 @@ public class BaseEntity
     public int CreatedBy { get; set; }
     public DateTime ModifyDate { get; set; }
     public int ModifiedBy { get; set; }
+    public bool IsActive { get; set; }
 }
