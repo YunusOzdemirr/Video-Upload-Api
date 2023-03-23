@@ -9,7 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/EntityFramework/VideoContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/CommentConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/LikeConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mappings/VideoConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/BaseEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Comment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Like.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Video.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VideoManagementApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/VideoManagementApi.csproj" afterDir="false" />
     </list>
@@ -22,24 +29,26 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2NMrWHZ3Pa1WAumY7FOk7szYdxA" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.VideoManagementApi">
     <configuration name="VideoManagementApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/VideoManagementApi.csproj" />
@@ -95,7 +104,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679484822171</updated>
-      <workItem from="1679484825976" duration="1621000" />
+      <workItem from="1679484825976" duration="2304000" />
+      <workItem from="1679553780727" duration="4056000" />
     </task>
     <servers />
   </component>
