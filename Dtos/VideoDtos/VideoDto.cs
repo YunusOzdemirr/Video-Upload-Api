@@ -12,4 +12,5 @@ public class VideoDto
     public ICollection<Seo> Seos { get; set; }
     public ICollection<Like> Likes { get; set; }
     public ICollection<Comment> Comments { get; set; }
+    public ICollection<VideoAndCategory> VideoAndCategories { get; set; }
 }
