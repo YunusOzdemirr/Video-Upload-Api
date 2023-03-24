@@ -7,5 +7,6 @@ namespace VideoManagementApi.Services.Abstract;
 public interface IUploadService
 {
     Task<IResult> UploadAsync(VideoAddDto videoAddDto);
+    Task<IResult> UpdateAsync(VideoUpdateDto videoUpdateDto);
     Task<IResult<List<VideoDto>>> GetVideos();
 }

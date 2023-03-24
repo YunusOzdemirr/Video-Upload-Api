@@ -5,6 +5,7 @@ using VideoManagementApi.Dtos.VideoDtos;
 using VideoManagementApi.Models;
 using VideoManagementApi.Services.Abstract;
 using VideoManagementApi.Utilities;
+using IResult = VideoManagementApi.Utilities.IResult;
 
 namespace VideoManagementApi.Services;
 
@@ -34,6 +35,17 @@ public class UploadService : IUploadService
             CreatedDate = DateTime.Now
         };
         await _videoContext.Videos.AddAsync(video);
+        return await Result.SuccessAsync();
+    }
+
+    public async Task<IResult> UpdateAsync(VideoUpdateDto videoUpdateDto)
+    {
+        var video = await _videoContext.Videos.SingleOrDefaultAsync(a => a.Id == videoUpdateDto.Id);
+        if (video == null)
+            return await Result.FailAsync();
+        var newVideo = _mapper.Map<VideoUpdateDto, Video>(videoUpdateDto, video);
+        _videoContext.Videos.Update(newVideo);
+        await _videoContext.SaveChangesAsync();
         return await Result.SuccessAsync();
     }
 
