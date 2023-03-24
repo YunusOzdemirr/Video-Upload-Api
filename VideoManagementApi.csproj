@@ -27,7 +27,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Dtos\LikeDtos" />
       <Folder Include="Features\Commands\VideoCommands" />
       <Folder Include="Features\Queries\VideoQueries" />
     </ItemGroup>

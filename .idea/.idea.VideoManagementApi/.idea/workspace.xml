@@ -9,11 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dtos/CategoryDtos/CategoryAddDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/VideoAndCategoryDtos/VideoAndCategoryAddDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/VideoAndCategoryDtos/VideoAndCategoryDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dtos/VideoDtos/VideoAddDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dtos/VideoDtos/VideoAddDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/CategoryDtos/CategoryDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/CategoryDtos/CategoryUpdateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/SeoDtos/SeoDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dtos/CategoryDtos/CategoryAddDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dtos/CategoryDtos/CategoryAddDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dtos/CommentDtos/CommentDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dtos/CommentDtos/CommentDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dtos/VideoDtos/VideoDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dtos/VideoDtos/VideoDto.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +102,7 @@
       <updated>1679484822171</updated>
       <workItem from="1679484825976" duration="2304000" />
       <workItem from="1679553780727" duration="7190000" />
-      <workItem from="1679608707894" duration="5341000" />
+      <workItem from="1679608707894" duration="6369000" />
     </task>
     <servers />
   </component>
