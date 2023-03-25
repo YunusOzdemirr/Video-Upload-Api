@@ -9,13 +9,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Features/Commands/VideoCommands/CreateVideoCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Features/Commands/VideoCommands/CreateVideoCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Features/Commands/VideoCommands/UpdateVideoCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/IAdvertisementRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/ICategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/ICommentRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/ILikeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/IRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/ISeoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/IVideoAndCategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/Abstract/IVideoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/AdvertisementRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/CategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/CommentRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/GenericRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/LikeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/SeoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/VideoAndCategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/VideoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Commands/CommentCommands/ApproveCommentCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Commands/CommentCommands/ApproveCommentCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Commands/CommentCommands/CreateCommentCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Commands/CommentCommands/CreateCommentCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Commands/VideoCommands/UpdateVideoCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Queries/CommentsQueries/GetCommentQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Queries/CommentsQueries/GetCommentQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Queries/CommentsQueries/GetCommentsQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Queries/CommentsQueries/GetCommentsQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Queries/VideoQueries/GetVideosQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Features/Queries/VideoQueries/GetVideosQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/IEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dtos/VideoDtos/VideoAddDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dtos/VideoDtos/VideoAddDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Advertisement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Advertisement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/Commands/VideoCommands/CreateVideoCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Commands/VideoCommands/CreateVideoCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/Commands/VideoCommands/UpdateVideoCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Commands/VideoCommands/UpdateVideoCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/BaseEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/VideoAndCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/VideoAndCategory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Abstract/ICommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstract/ICommentService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/Abstract/IUploadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Abstract/IUploadService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/CommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/CommentService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/UploadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/UploadService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VideoManagementApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/VideoManagementApi.csproj" afterDir="false" />
     </list>
@@ -35,19 +64,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.toDoOptions",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.VideoManagementApi">
     <configuration name="VideoManagementApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/VideoManagementApi.csproj" />
@@ -105,7 +134,7 @@
       <updated>1679484822171</updated>
       <workItem from="1679484825976" duration="2304000" />
       <workItem from="1679553780727" duration="7190000" />
-      <workItem from="1679608707894" duration="8068000" />
+      <workItem from="1679608707894" duration="14769000" />
     </task>
     <servers />
   </component>

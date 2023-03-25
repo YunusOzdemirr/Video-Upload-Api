@@ -1,6 +1,6 @@
 namespace VideoManagementApi.Models;
 
-public class VideoAndCategory
+public class VideoAndCategory : BaseEntity
 {
     public int VideoId { get; set; }
     public Video Video { get; set; }

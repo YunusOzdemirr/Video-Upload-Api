@@ -1,6 +1,6 @@
 namespace VideoManagementApi.Models;
 
-public class BaseEntity
+public class BaseEntity: IEntity
 {
     public int Id { get; set; }
     public DateTime CreatedDate { get; set; }
