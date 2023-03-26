@@ -11,42 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/CreateAdvertisementCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/CreateAdvertisementCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAdvertisementsQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAdvertisementsQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/CreateCategoryCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/CreateCategoryCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Queries/GetCategoriesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Queries/GetCategoriesQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/LikeFeatures/Commands/CreateOrUpdateLikeCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/LikeFeatures/Commands/CreateOrUpdateLikeCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/LikeFeatures/Queries/GetLikesQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/LikeFeatures/Queries/GetLikesQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Commands/DeleteVideoAndCategoryCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Commands/DeleteVideoAndCategoryCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Queries/GetCategoriesByVideoId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Queries/GetCategoriesByVideoIdQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Queries/GetVideosByCategoryIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Queries/GetVideosByCategoryIdQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IAdvertisementService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/ICategoryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/ILikeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IVideoAndCategoryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/CategoryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/LikeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/SeoService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoAndCategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Commands/CreateVideoAndCategoryCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Commands/CreateVideoAndCategoryCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Repositories/IGenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Repositories/IGenericRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Common/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Common/BaseEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Repositories/GenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Repositories/GenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/CommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/CommentService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/UploadService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/UploadService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoAndCategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoAndCategoryService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +135,7 @@
       <workItem from="1679484825976" duration="2304000" />
       <workItem from="1679553780727" duration="7190000" />
       <workItem from="1679608707894" duration="19069000" />
-      <workItem from="1679847513017" duration="5575000" />
+      <workItem from="1679847513017" duration="6109000" />
     </task>
     <servers />
   </component>

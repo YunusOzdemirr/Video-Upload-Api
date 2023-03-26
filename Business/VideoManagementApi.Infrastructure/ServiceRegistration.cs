@@ -2,7 +2,9 @@ using VideoManagementApi.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using VideoManagementApi.Application.Interfaces.Services;
 using VideoManagementApi.Infrastructure.Repositories;
+using VideoManagementApi.Infrastructure.Services;
 
 namespace VideoManagementApi.Infrastructure;
 
@@ -18,6 +20,8 @@ public static class ServiceRegistration
         });
 
         // services.AddScoped<IOrderRepository, OrderRepository>();
+
+        #region Repositories
         services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
         services.AddScoped<ICategoryRepository,CategoryRepository>();
         services.AddScoped<ICommentRepository, CommentRepository>();
@@ -25,6 +29,17 @@ public static class ServiceRegistration
         services.AddScoped<ISeoRepository, SeoRepository>();
         services.AddScoped<IVideoRepository, VideoRepository>();
         services.AddScoped<IVideoAndCategoryRepository, VideoAndCategoryRepository>();
+        #endregion
+
+        #region Services
+        services.AddScoped<IAdvertisementService, AdvertisementService>();
+        services.AddScoped<ICategoryService,CategoryService>();
+        services.AddScoped<ICommentService, CommentService>();
+        services.AddScoped<ILikeService,LikeService>();
+        services.AddScoped<ISeoService, SeoService>();
+        services.AddScoped<IVideoService, VideoService>();
+        services.AddScoped<IVideoAndCategoryService, VideoAndCategoryService>();
+        #endregion
         
         var optionsBuilder = new DbContextOptionsBuilder<VideoContext>()
             .UseSqlServer(configuration["MicroServiceConnectionString"]);

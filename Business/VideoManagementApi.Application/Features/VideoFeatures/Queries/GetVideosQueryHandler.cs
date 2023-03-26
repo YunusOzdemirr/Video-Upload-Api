@@ -5,9 +5,9 @@ namespace VideoManagementApi.Application.Features.VideoFeatures.Queries;
 
 public class GetVideosQueryHandler : IRequestHandler<GetVideosQuery, IResult<List<Video>>>
 {
-    private readonly IUploadService _uploadService;
+    private readonly IVideoService _uploadService;
 
-    public GetVideosQueryHandler(IUploadService uploadService)
+    public GetVideosQueryHandler(IVideoService uploadService)
     {
         _uploadService = uploadService;
     }

@@ -4,9 +4,9 @@ namespace VideoManagementApi.Application.Features.VideoFeatures.Commands;
 
 public class UpdateVideoCommandHandler : IRequestHandler<UpdateVideoCommand, IResult>
 {
-    private readonly IUploadService _uploadService;
+    private readonly IVideoService _uploadService;
 
-    public UpdateVideoCommandHandler(IUploadService uploadService)
+    public UpdateVideoCommandHandler(IVideoService uploadService)
     {
         _uploadService = uploadService;
     }

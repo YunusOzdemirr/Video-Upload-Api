@@ -4,9 +4,9 @@ namespace VideoManagementApi.Application.Features.VideoFeatures.Commands;
 
 public class CreateVideoCommandHandler : IRequestHandler<CreateVideoCommand, IResult>
 {
-    private IUploadService _uploadService;
+    private IVideoService _uploadService;
 
-    public CreateVideoCommandHandler(IUploadService uploadService)
+    public CreateVideoCommandHandler(IVideoService uploadService)
     {
         _uploadService = uploadService;
     }

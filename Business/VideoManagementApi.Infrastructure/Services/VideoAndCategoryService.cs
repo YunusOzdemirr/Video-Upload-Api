@@ -12,14 +12,11 @@ public class VideoAndCategoryService : IVideoAndCategoryService
 {
     private readonly VideoContext _videoContext;
     private readonly IVideoAndCategoryRepository _videoAndCategoryRepository;
-    private readonly IMapper _mapper;
 
-    public VideoAndCategoryService(VideoContext videoContext, IVideoAndCategoryRepository videoAndCategoryRepository,
-        IMapper mapper)
+    public VideoAndCategoryService(VideoContext videoContext, IVideoAndCategoryRepository videoAndCategoryRepository)
     {
         _videoContext = videoContext;
         _videoAndCategoryRepository = videoAndCategoryRepository;
-        _mapper = mapper;
     }
 
     public async Task<IResult> CreateAsync(CreateVideoAndCategoryCommand createVideoAndCategoryCommand,
@@ -44,26 +41,49 @@ public class VideoAndCategoryService : IVideoAndCategoryService
             CategoryId = category.Id,
             Category = category
         };
+        video.VideoAndCategories.Add(videoAndCategory);
+        category.VideoAndCategories.Add(videoAndCategory);
         await _videoAndCategoryRepository.AddAsync(videoAndCategory, cancellationToken);
-
+        await _videoContext.SaveChangesAsync(cancellationToken);
         return await Result.SuccessAsync();
     }
 
     public async Task<IResult> DeleteAsync(DeleteVideoAndCategoryCommand deleteVideoAndCategoryCommand,
         CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var videoAndCategory = await _videoContext
+            .VideoAndCategories
+            .Include(a => a.Video)
+            .Include(a => a.Category)
+            .SingleOrDefaultAsync(a =>
+                a.VideoId == deleteVideoAndCategoryCommand.VideoId &&
+                a.CategoryId == deleteVideoAndCategoryCommand.CategoryId, cancellationToken);
+        if (videoAndCategory == null)
+            return await Result.FailAsync();
+        videoAndCategory.Video.VideoAndCategories.Remove(videoAndCategory);
+        videoAndCategory.Category.VideoAndCategories.Remove(videoAndCategory);
+        _videoContext.Remove(videoAndCategory);
+        await _videoContext.SaveChangesAsync(cancellationToken);
+        return await Result.SuccessAsync();
     }
 
     public async Task<IResult<List<VideoAndCategory>>> GetVideosByCategoryId(int categoryId,
         CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var videos = await _videoContext
+            .VideoAndCategories
+            .Include(a => a.Video)
+            .Where(a => a.CategoryId == categoryId && a.IsActive).ToListAsync(cancellationToken);
+        return await Result<List<VideoAndCategory>>.SuccessAsync(videos);
     }
 
     public async Task<IResult<List<VideoAndCategory>>> GetCategoryiesByVideoId(int videoId,
         CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var videos = await _videoContext
+            .VideoAndCategories
+            .Include(a => a.Category)
+            .Where(a => a.VideoId ==videoId && a.IsActive).ToListAsync(cancellationToken);
+        return await Result<List<VideoAndCategory>>.SuccessAsync(videos);
     }
 }

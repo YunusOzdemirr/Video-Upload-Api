@@ -13,14 +13,14 @@ using VideoManagementApi.Infrastructure.Utilities;
 
 namespace VideoManagementApi.Infrastructure.Services;
 
-public class UploadService : IUploadService
+public class VideoService : IVideoService
 {
     private readonly VideoContext _videoContext;
     private readonly IVideoRepository _videoRepository;
     private readonly IMapper _mapper;
     private readonly IMediator _mediator;
 
-    public UploadService(VideoContext videoContext, IMapper mapper, IVideoRepository videoRepository,
+    public VideoService(VideoContext videoContext, IMapper mapper, IVideoRepository videoRepository,
         IMediator mediator)
     {
         _videoContext = videoContext;

@@ -4,7 +4,7 @@ using VideoManagementApi.Domain.Entities;
 
 namespace VideoManagementApi.Application.Interfaces.Services;
 
-public interface IUploadService
+public interface IVideoService
 {
     Task<IResult> UploadAsync(CreateVideoCommand createVideoCommand, CancellationToken cancellationToken);
     Task<IResult> UpdateAsync(UpdateVideoCommand updateVideoCommand, CancellationToken cancellationToken);

@@ -44,7 +44,7 @@ namespace VideoManagementApi.Domain.Common
             return false;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null || !(obj is BaseEntity))
                 return false;
@@ -78,7 +78,7 @@ namespace VideoManagementApi.Domain.Common
                 return base.GetHashCode();
         }
 
-        public static bool operator ==(BaseEntity left, BaseEntity right)
+        public static bool operator ==(BaseEntity? left, BaseEntity? right)
         {
             if (Equals(left, null))
                 return Equals(right, null) ? true : false;
