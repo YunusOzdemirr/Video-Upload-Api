@@ -30,8 +30,8 @@ public class FileUpload
         if (!Directory.Exists(_currentDirectory + folderName))
             Directory.CreateDirectory(_currentDirectory + folderName);
 
-        string fileName = Guid.NewGuid().ToString().Substring(0, 9) + "_" + file.FileName;
-        var path = _currentDirectory + folderName + @"\" + fileName;
+        string fileName = Guid.NewGuid().ToString();
+        var path = _currentDirectory + folderName + @"/" + fileName;
         var virtualPath = "Uploads/" + folderName + "/" + fileName;
         var type = Path.GetExtension(file.FileName);
         var typeValid = await CheckFileTypeValid(type);
@@ -77,7 +77,7 @@ public class FileUpload
     private static async Task<IResult> CheckFileTypeValid(string type)
     {
         type = type.ToLower();
-        if (type == ".jpeg" || type == ".png" || type == ".jpg" || type==".dng"||type==".gif")
+        if (type == ".jpeg" || type == ".png" || type == ".jpg" || type==".dng"||type==".gif" || type==".mp4" || type==".m4a")
             return await Result.SuccessAsync("Geçerli dosya");
         return await Result.FailAsync("Dosya tipi yanlış formatta.");
     }

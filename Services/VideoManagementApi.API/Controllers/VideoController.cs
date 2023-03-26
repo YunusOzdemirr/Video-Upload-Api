@@ -32,6 +32,7 @@ public class VideoController : Controller
     [HttpPost]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
+    [RequestSizeLimit(long.MaxValue)]
     public async Task<IActionResult> Create([FromForm]CreateVideoCommand command)
     {
         var result = await _mediator.Send(command);

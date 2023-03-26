@@ -36,7 +36,7 @@ public class VideoService : IVideoService
             return result;
         var video = new Video()
         {
-            FileName = createVideoCommand.File.Name,
+            FileName = result.Message,
             FilePath = result.Data as string,
             Description = createVideoCommand.Description,
             Title = createVideoCommand.Title,
