@@ -15,11 +15,9 @@ public static class ServiceRegistration
     {
         services.AddDbContext<VideoContext>(opt =>
         {
-            opt.UseSqlServer(configuration["MicroServiceConnectionString"]);
+            opt.UseSqlServer(configuration["VideoConnectionString"]);
             opt.EnableSensitiveDataLogging();
         });
-
-        // services.AddScoped<IOrderRepository, OrderRepository>();
 
         #region Repositories
         services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
@@ -42,11 +40,11 @@ public static class ServiceRegistration
         #endregion
         
         var optionsBuilder = new DbContextOptionsBuilder<VideoContext>()
-            .UseSqlServer(configuration["MicroServiceConnectionString"]);
+            .UseSqlServer(configuration["VideoConnectionString"]);
 
         using var dbContext = new VideoContext(optionsBuilder.Options, null);
-        dbContext.Database.EnsureCreated();
-        dbContext.Database.Migrate();
+        //dbContext.Database.EnsureCreated();
+        //dbContext.Database.Migrate();
 
         return services;
     }

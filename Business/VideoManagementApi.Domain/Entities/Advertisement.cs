@@ -2,7 +2,7 @@ using VideoManagementApi.Domain.Common;
 
 namespace VideoManagementApi.Domain.Entities;
 
-public abstract class Advertisement : BaseEntity
+public  class Advertisement : BaseEntity
 {
     public string Name { get; set; }
     public string Description { get; set; }

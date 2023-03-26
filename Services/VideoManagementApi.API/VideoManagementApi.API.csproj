@@ -22,12 +22,12 @@
         <None Remove="MediatR" />
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="Controllers" />
         <Folder Include="Controllers\" />
         <Folder Include="IntegrationEvents\EventHandlers" />
         <Folder Include="IntegrationEvents\Events" />
         <Folder Include="Models" />
         <Folder Include="Models\" />
+        <Folder Include="wwwroot\Uploads" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Business\VideoManagementApi.Application\VideoManagementApi.Application.csproj" />

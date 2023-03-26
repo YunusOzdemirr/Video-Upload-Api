@@ -31,7 +31,7 @@ public class VideoService : IVideoService
 
     public async Task<IResult> UploadAsync(CreateVideoCommand createVideoCommand, CancellationToken cancellationToken)
     {
-        var result = await FileUpload.Update(createVideoCommand.File, "Videos", "");
+        var result = await FileUpload.UploadAlternative(createVideoCommand.File, "Videos", "");
         if (!result.Succeeded)
             return result;
         var video = new Video()
@@ -50,14 +50,14 @@ public class VideoService : IVideoService
     private async Task SeoAndCategoryCreateAsync(List<CreateVideoAndCategoryCommand> videoAndCategories,
         List<CreateSeoCommand> seos, int videoId)
     {
-        if (videoAndCategories.Count > 0)
+        if (videoAndCategories != null && videoAndCategories.Count > 0)
             foreach (var videoAndCategory in videoAndCategories)
             {
                 videoAndCategory.VideoId = videoId;
                 await _mediator.Send(videoAndCategory);
             }
 
-        if (seos.Count > 0)
+        if (seos != null && seos.Count > 0)
             foreach (var seo in seos)
             {
                 seo.VideoId = videoId;

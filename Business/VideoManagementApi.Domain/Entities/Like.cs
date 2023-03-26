@@ -2,7 +2,7 @@ using VideoManagementApi.Domain.Common;
 
 namespace VideoManagementApi.Domain.Entities;
 
-public abstract class Like : BaseEntity
+public  class Like : BaseEntity
 {
     public string IpAddress { get; set; }
     public bool IsLiked { get; set; }

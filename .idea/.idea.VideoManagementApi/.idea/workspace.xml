@@ -11,8 +11,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Common/BaseEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Common/BaseEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoAndCategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoAndCategoryService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Options/TokenOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Utilities/Security/SecurityKeyHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoFeatures/Commands/CreateVideoCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoFeatures/Commands/CreateVideoCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Advertisement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Advertisement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Comment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Like.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Like.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Seo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Seo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/Configurations/VideoConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/Configurations/VideoConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/ServiceRegistration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/ServiceRegistration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Utilities/FileUpload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Utilities/FileUpload.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +37,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11a2aa831d04e8eba36f4248c870ea110e00/20/12f28691/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cbc191c5526c45f0854550028a618dd3d000/dc/acc1698c/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a162845438571b33c70b6689ad639282c1afed571d77277da548f411819b6/FormFile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bcae882191178c8bf44c9add4cdeffa874a7afe629e3e56e9280f5896e953425/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3a8dfd928d7124044723494a9a7b2872a8bb9f96333d4baed4e1992126616ce/Check.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fcf8a632bf29ee1c9ceeba6881d34e365d858f8f117f62861291dcdb2f1f93/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -34,24 +53,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.VideoManagementApi">
+}]]></component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.VideoManagementApi.API">
     <configuration name="VideoManagementApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/VideoManagementApi.csproj" />
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="VideoManagementApi" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -59,6 +79,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="0" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="RUNTIME_TYPE" value="coreclr" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -135,7 +156,7 @@
       <workItem from="1679484825976" duration="2304000" />
       <workItem from="1679553780727" duration="7190000" />
       <workItem from="1679608707894" duration="19069000" />
-      <workItem from="1679847513017" duration="6109000" />
+      <workItem from="1679847513017" duration="11161000" />
     </task>
     <servers />
   </component>
@@ -154,6 +175,51 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Utilities/FileUpload.cs</url>
+          <line>48</line>
+          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Utilities/FileUpload.cs" initialLine="48" containingFunctionPresentation="method 'Update'">
+            <startOffsets>
+              <option value="2083" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2128" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideoController.cs</url>
+          <line>39</line>
+          <properties documentPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideoController.cs" initialLine="39" containingFunctionPresentation="method 'Create'">
+            <startOffsets>
+              <option value="1320" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1338" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs</url>
+          <line>34</line>
+          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" initialLine="34" containingFunctionPresentation="method 'UploadAsync'">
+            <startOffsets>
+              <option value="1393" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1415" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

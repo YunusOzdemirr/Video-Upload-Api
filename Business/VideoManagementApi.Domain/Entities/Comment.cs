@@ -2,7 +2,7 @@ using VideoManagementApi.Domain.Common;
 
 namespace VideoManagementApi.Domain.Entities;
 
-public abstract class Comment : BaseEntity
+public  class Comment : BaseEntity
 {
     public string IpAddress { get; set; }
     public string Name { get; set; }

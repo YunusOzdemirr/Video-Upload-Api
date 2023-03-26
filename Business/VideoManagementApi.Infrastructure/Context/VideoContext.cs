@@ -17,6 +17,7 @@ namespace VideoManagementApi.Infrastructure.Context
         public DbSet<Video> Videos { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Like> Likes { get; set; }
+        public DbSet<Seo> Seos { get; set; }
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<VideoAndCategory> VideoAndCategories { get; set; }
@@ -45,7 +46,6 @@ namespace VideoManagementApi.Infrastructure.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=localhost;Database=VideoContext;User=sa;Password=bhdKs3WOp7;");
-
             base.OnConfiguring(optionsBuilder);
         }
 

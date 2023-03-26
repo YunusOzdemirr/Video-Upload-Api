@@ -5,7 +5,7 @@ namespace VideoManagementApi.Infrastructure.Utilities;
 
 public class FileUpload
 {
-    private static string _currentDirectory = Environment.CurrentDirectory + @"\wwwroot\Uploads\";
+    private static string _currentDirectory = Environment.CurrentDirectory + @"/wwwroot/Uploads/";
 
     public static async Task<IResult> Upload(IFormFile file, string folderName)
     {
@@ -20,7 +20,7 @@ public class FileUpload
        await CheckDirectoryExists(_currentDirectory);
        await CreateImageFile(_currentDirectory + randomName + type, file);
         return await Result.SuccessAsync(
-            (_currentDirectory + $"\\{folderName}\\" + randomName + type).Replace("\\", "/"), randomName + type + file);
+            (_currentDirectory + $"/{folderName}/" + randomName + type).Replace("\\", "/"), randomName + type + file);
     }
 
     public static async Task<IResult> UploadAlternative(IFormFile file, string folderName, string? oldFilePath = "")
@@ -51,10 +51,9 @@ public class FileUpload
             return await Result.FailAsync(fileExists.Message);
         var type = Path.GetExtension(file.FileName);
         var typeValid = await CheckFileTypeValid(type);
-        var randomName = Guid.NewGuid().ToString();
-
         if (!typeValid.Succeeded)
             return await Result.FailAsync(typeValid.Message);
+        var randomName = Guid.NewGuid().ToString();
 
         await DeleteOldImageFile((_currentDirectory + $"\\{folderName}" + oldImageName).Replace("/", "\\"));
         await CheckDirectoryExists(_currentDirectory + $"\\{folderName}");
@@ -78,7 +77,7 @@ public class FileUpload
     private static async Task<IResult> CheckFileTypeValid(string type)
     {
         type = type.ToLower();
-        if (type == ".jpeg" || type == ".png" || type == ".jpg")
+        if (type == ".jpeg" || type == ".png" || type == ".jpg" || type==".dng"||type==".gif")
             return await Result.SuccessAsync("Geçerli dosya");
         return await Result.FailAsync("Dosya tipi yanlış formatta.");
     }
