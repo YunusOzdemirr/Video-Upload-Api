@@ -1,6 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi", "VideoManagementApi.csproj", "{F609B1B0-9B5F-4E01-93D9-77ADD32114EC}"
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{5024BC60-C9CD-4FF4-9A00-4511F0B2E913}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{8327D15F-F399-4902-8462-DB1C004B3F30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.Application", "Business\VideoManagementApi.Application\VideoManagementApi.Application.csproj", "{40AEC524-9CAB-43ED-8562-CEC7BA6C584A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.Domain", "Business\VideoManagementApi.Domain\VideoManagementApi.Domain.csproj", "{0F927E13-67D0-4BE1-8ACB-465C57CA5D6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.Application.UnitTest", "Business\VideoManagementApi.Application.UnitTest\VideoManagementApi.Application.UnitTest.csproj", "{A71829AF-6CCB-4565-BF9A-3AD05FB6840F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.Domain.UnitTest", "Business\VideoManagementApi.Domain.UnitTest\VideoManagementApi.Domain.UnitTest.csproj", "{F73B9C10-C84B-44D8-BFCE-567AF0B83951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.Infrastructure", "Business\VideoManagementApi.Infrastructure\VideoManagementApi.Infrastructure.csproj", "{3EB947C4-4336-4934-8E8C-9CE3D661B1C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.Infrastructure.UnitTest", "Business\VideoManagementApi.Infrastructure.UnitTest\VideoManagementApi.Infrastructure.UnitTest.csproj", "{7D755BD3-D981-49D2-9AFE-CE31F9926BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.API", "Services\VideoManagementApi.API\VideoManagementApi.API.csproj", "{A1F213C9-C3CC-46AA-983A-E6F8F63B7046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManagementApi.API.UnitTest", "Services\VideoManagementApi.API.UnitTest\VideoManagementApi.API.UnitTest.csproj", "{2D3EE718-151B-45E0-BFD4-84B0F955E250}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +29,53 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F609B1B0-9B5F-4E01-93D9-77ADD32114EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F609B1B0-9B5F-4E01-93D9-77ADD32114EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F609B1B0-9B5F-4E01-93D9-77ADD32114EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F609B1B0-9B5F-4E01-93D9-77ADD32114EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40AEC524-9CAB-43ED-8562-CEC7BA6C584A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40AEC524-9CAB-43ED-8562-CEC7BA6C584A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40AEC524-9CAB-43ED-8562-CEC7BA6C584A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40AEC524-9CAB-43ED-8562-CEC7BA6C584A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F927E13-67D0-4BE1-8ACB-465C57CA5D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F927E13-67D0-4BE1-8ACB-465C57CA5D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F927E13-67D0-4BE1-8ACB-465C57CA5D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F927E13-67D0-4BE1-8ACB-465C57CA5D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71829AF-6CCB-4565-BF9A-3AD05FB6840F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71829AF-6CCB-4565-BF9A-3AD05FB6840F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71829AF-6CCB-4565-BF9A-3AD05FB6840F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71829AF-6CCB-4565-BF9A-3AD05FB6840F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F73B9C10-C84B-44D8-BFCE-567AF0B83951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73B9C10-C84B-44D8-BFCE-567AF0B83951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73B9C10-C84B-44D8-BFCE-567AF0B83951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73B9C10-C84B-44D8-BFCE-567AF0B83951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1F213C9-C3CC-46AA-983A-E6F8F63B7046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F213C9-C3CC-46AA-983A-E6F8F63B7046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F213C9-C3CC-46AA-983A-E6F8F63B7046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F213C9-C3CC-46AA-983A-E6F8F63B7046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D3EE718-151B-45E0-BFD4-84B0F955E250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D3EE718-151B-45E0-BFD4-84B0F955E250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D3EE718-151B-45E0-BFD4-84B0F955E250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D3EE718-151B-45E0-BFD4-84B0F955E250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB947C4-4336-4934-8E8C-9CE3D661B1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB947C4-4336-4934-8E8C-9CE3D661B1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB947C4-4336-4934-8E8C-9CE3D661B1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB947C4-4336-4934-8E8C-9CE3D661B1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D755BD3-D981-49D2-9AFE-CE31F9926BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D755BD3-D981-49D2-9AFE-CE31F9926BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D755BD3-D981-49D2-9AFE-CE31F9926BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D755BD3-D981-49D2-9AFE-CE31F9926BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {239F797A-D6A9-4A69-8583-F8FF0CBB2E3C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40AEC524-9CAB-43ED-8562-CEC7BA6C584A} = {5024BC60-C9CD-4FF4-9A00-4511F0B2E913}
+		{0F927E13-67D0-4BE1-8ACB-465C57CA5D6C} = {5024BC60-C9CD-4FF4-9A00-4511F0B2E913}
+		{A71829AF-6CCB-4565-BF9A-3AD05FB6840F} = {5024BC60-C9CD-4FF4-9A00-4511F0B2E913}
+		{F73B9C10-C84B-44D8-BFCE-567AF0B83951} = {5024BC60-C9CD-4FF4-9A00-4511F0B2E913}
+		{A1F213C9-C3CC-46AA-983A-E6F8F63B7046} = {8327D15F-F399-4902-8462-DB1C004B3F30}
+		{2D3EE718-151B-45E0-BFD4-84B0F955E250} = {8327D15F-F399-4902-8462-DB1C004B3F30}
+		{3EB947C4-4336-4934-8E8C-9CE3D661B1C8} = {5024BC60-C9CD-4FF4-9A00-4511F0B2E913}
+		{7D755BD3-D981-49D2-9AFE-CE31F9926BDA} = {5024BC60-C9CD-4FF4-9A00-4511F0B2E913}
 	EndGlobalSection
 EndGlobal
