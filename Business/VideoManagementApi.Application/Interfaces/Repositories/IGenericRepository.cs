@@ -5,12 +5,18 @@ namespace VideoManagementApi.Application.Interfaces.Repositories
 {
     public interface IGenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        Task<List<T>> GetAllAsync(bool isActive);
-        Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter = null);
-        Task<bool> AddAsync(T entity);
-        Task<T> GetByIdAsync(int id);
-        Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter = null);
-        Task<bool> DeleteByIdAsync(int id);
-        Task<bool> UpdateAsync(T entity);
+        Task<List<T>> GetAllAsync(bool isActive, CancellationToken cancellationToken);
+
+        Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter = null,
+            CancellationToken cancellationToken = default);
+
+        Task<bool> AddAsync(T entity, CancellationToken cancellationToken);
+        Task<T> GetByIdAsync(int id, CancellationToken cancellationToken);
+
+        Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter = null,
+            CancellationToken cancellationToken = default);
+
+        Task<bool> DeleteByIdAsync(int id, CancellationToken cancellationToken);
+        Task<bool> UpdateAsync(T entity, CancellationToken cancellationToken);
     }
 }

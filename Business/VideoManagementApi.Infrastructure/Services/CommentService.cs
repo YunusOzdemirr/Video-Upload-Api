@@ -23,14 +23,14 @@ public class CommentService : ICommentService
 
     public async Task<IResult> AddAsync(CreateCommentCommand command, CancellationToken cancellationToken)
     {
-        var video = await _videoContext.Videos.SingleOrDefaultAsync(a => a.Id == command.VideoId);
+        var video = await _videoContext.Videos.SingleOrDefaultAsync(a => a.Id == command.VideoId, cancellationToken);
         if (video == null)
             return await Result.FailAsync();
         var comment = _mapper.Map<Comment>(command);
         comment.Video = video;
         comment.CreatedDate = DateTime.Now;
         video.Comments.Add(comment);
-        await _commentRepository.AddAsync(comment);
+        await _commentRepository.AddAsync(comment, cancellationToken);
         return await Result.SuccessAsync();
     }
 
@@ -38,7 +38,7 @@ public class CommentService : ICommentService
         CancellationToken cancellationToken)
     {
         var video = await _videoContext.Videos.AsNoTracking().Include(a => a.Comments.Where(a => a.IsApproved))
-            .SingleOrDefaultAsync(a => a.Id == videoId);
+            .SingleOrDefaultAsync(a => a.Id == videoId, cancellationToken);
         var comments = video.Comments.ToList();
         return await Result<List<Comment>>.SuccessAsync(comments);
     }
@@ -51,13 +51,13 @@ public class CommentService : ICommentService
         comment.IsApproved = comment.IsApproved ? false : true;
         comment.ModifiedDate = DateTime.Now;
         comment.ModifiedBy = adminId;
-        await _commentRepository.UpdateAsync(comment);
+        await _commentRepository.UpdateAsync(comment, cancellationToken);
         return await Result.SuccessAsync();
     }
 
     public async Task<IResult<Comment>> GetCommentByIdAsync(int commentId, CancellationToken cancellationToken)
     {
-        var comment = await _commentRepository.GetByIdAsync(commentId);
+        var comment = await _commentRepository.GetByIdAsync(commentId, cancellationToken);
         return await Result<Comment>.SuccessAsync(comment);
     }
 }

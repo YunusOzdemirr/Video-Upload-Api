@@ -42,7 +42,7 @@ public class UploadService : IUploadService
             Title = createVideoCommand.Title,
             WatchCount = 0,
         };
-        await _videoRepository.AddAsync(video);
+        await _videoRepository.AddAsync(video, cancellationToken);
         await SeoAndCategoryCreateAsync(createVideoCommand.VideoAndCategories, createVideoCommand.Seos, video.Id);
         return await Result.SuccessAsync();
     }
@@ -67,11 +67,12 @@ public class UploadService : IUploadService
 
     public async Task<IResult> UpdateAsync(UpdateVideoCommand updateVideoCommand, CancellationToken cancellationToken)
     {
-        var video = await _videoContext.Videos.SingleOrDefaultAsync(a => a.Id == updateVideoCommand.Id);
+        var video = await _videoContext.Videos.SingleOrDefaultAsync(a => a.Id == updateVideoCommand.Id,
+            cancellationToken);
         if (video == null)
             return await Result.FailAsync();
         var newVideo = _mapper.Map<UpdateVideoCommand, Video>(updateVideoCommand, video);
-        await _videoRepository.UpdateAsync(newVideo);
+        await _videoRepository.UpdateAsync(newVideo, cancellationToken);
         await SeoAndCategoryCreateAsync(updateVideoCommand.VideoAndCategories, updateVideoCommand.Seos, video.Id);
         return await Result.SuccessAsync();
     }
@@ -79,8 +80,8 @@ public class UploadService : IUploadService
     public async Task<IResult<List<Video>>> GetVideos(GetVideosQuery query, CancellationToken cancellationToken)
     {
         var videos = query.IsActive == null
-            ? await _videoRepository.GetAllAsync()
-            : await _videoRepository.GetAllAsync(a => a.IsActive == query.IsActive);
+            ? await _videoRepository.GetAllAsync(cancellationToken: cancellationToken)
+            : await _videoRepository.GetAllAsync(a => a.IsActive == query.IsActive, cancellationToken);
         return await Result<List<Video>>.SuccessAsync(videos);
     }
 }
