@@ -1,3 +1,5 @@
+using VideoManagementApi.Application.Features.SeoFeatures.Commands;
+using VideoManagementApi.Application.Features.VideoAndCategoryFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Queries;
 using VideoManagementApi.Domain.Entities;
