@@ -127,5 +127,31 @@ namespace VideoManagementApi.Domain.Common
                 { ResultStatus = ResultStatus.Success, Succeeded = true, Message = message, Data = data };
             return await Task.FromResult(result);
         }
+        
+        
+        public static async Task<IResult<T>> SuccessNotFoundAsync(T data)
+        {
+            var result = new Result<T> { ResultStatus = ResultStatus.Success, Succeeded = true, Data = data };
+            return await Task.FromResult(result);
+        }
+
+        public static async Task<IResult<T>> SuccessNotFoundAsync()
+        {
+            var result = new Result<T> { ResultStatus = ResultStatus.Success, Succeeded = true };
+            return await Task.FromResult(result);
+        }
+
+        public static async Task<IResult<T>> SuccessNotFoundAsync(string message)
+        {
+            var result = new Result<T> { ResultStatus = ResultStatus.Success, Succeeded = true, Message = message };
+            return await Task.FromResult(result);
+        }
+
+        public static async Task<IResult<T>> SuccessNotFoundAsync(string message, T data)
+        {
+            var result = new Result<T>
+                { ResultStatus = ResultStatus.Success, Succeeded = true, Message = message, Data = data };
+            return await Task.FromResult(result);
+        }
     }
 }

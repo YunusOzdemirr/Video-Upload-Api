@@ -12,6 +12,6 @@ public interface IAdvertisementService
     Task<IResult> UpdateAsync(UpdateAdvertisementCommand updateAdvertisementCommand,
         CancellationToken cancellationToken);
 
-    Task<IResult<List<Advertisement>>> GetAllAsync(GetAdvertisementsQuery getAdvertisementsQuery,
+    Task<IResult<List<Advertisement>>> GetAllAsync(GetAllAdvertisementsQuery getAdvertisementsQuery,
         CancellationToken cancellationToken);
 }

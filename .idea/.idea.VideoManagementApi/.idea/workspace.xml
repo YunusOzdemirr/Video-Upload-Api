@@ -11,12 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAdvertisementQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAdvertisementQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoFeatures/Queries/GetVideoQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoFeatures/Queries/GetVideoQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/AdvertisementsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CommentsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/SeoFeatures/Commands/CreateSeoCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/SeoFeatures/Commands/CreateSeoCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Commands/CreateVideoAndCategoryCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoAndCategoryFeatures/Commands/CreateVideoAndCategoryCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IVideoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IVideoService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAdvertisementsQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAllAdvertisementsQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAdvertisementsQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAllAdvertisementsQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IAdvertisementService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IAdvertisementService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Common/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Common/Result.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideoController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +31,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1fe1053177b343d6b0404279c98ec5f6209800/6b/8bb58dc3/ApplicationModelFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7089f10d9344224ab6a341dbb3570103c200/48/3d80e1f7/IResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11a2aa831d04e8eba36f4248c870ea110e00/20/12f28691/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cbc191c5526c45f0854550028a618dd3d000/dc/acc1698c/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a162845438571b33c70b6689ad639282c1afed571d77277da548f411819b6/FormFile.cs" root0="SKIP_HIGHLIGHTING" />
@@ -146,6 +155,7 @@
       <workItem from="1679553780727" duration="7190000" />
       <workItem from="1679608707894" duration="19069000" />
       <workItem from="1679847513017" duration="21024000" />
+      <workItem from="1680425219176" duration="4048000" />
     </task>
     <servers />
   </component>

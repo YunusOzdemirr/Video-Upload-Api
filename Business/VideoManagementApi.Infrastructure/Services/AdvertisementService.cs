@@ -38,7 +38,7 @@ public class AdvertisementService : IAdvertisementService
         return await Result.SuccessAsync();
     }
 
-    public async Task<IResult<List<Advertisement>>> GetAllAsync(GetAdvertisementsQuery getAdvertisementsQuery,
+    public async Task<IResult<List<Advertisement>>> GetAllAsync(GetAllAdvertisementsQuery getAdvertisementsQuery,
         CancellationToken cancellationToken)
     {
         var advertisements = await _repository.GetAllAsync(cancellationToken: cancellationToken);
