@@ -29,7 +29,7 @@ public class CommentsController : Controller
         var result = await _mediator.Send(query);
         return Ok(Result.SuccessAsync(result));
     }
-    
+
     [HttpGet]
     [ProducesResponseType(typeof(IResult<List<Comment>>), StatusCodes.Status200OK)]
     public async Task<IActionResult> Get()
@@ -38,7 +38,7 @@ public class CommentsController : Controller
         var result = await _mediator.Send(query);
         return Ok(Result.SuccessAsync(result));
     }
-    
+
     [HttpPost]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     public async Task<IActionResult> Create(CreateCommentCommand command)
@@ -46,7 +46,7 @@ public class CommentsController : Controller
         var result = await _mediator.Send(command);
         return Ok(Result.SuccessAsync(result));
     }
-    
+
     [HttpPut]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     public async Task<IActionResult> Approve(ApproveCommentCommand command)

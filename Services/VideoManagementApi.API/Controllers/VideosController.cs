@@ -11,11 +11,11 @@ namespace VideoManagementApi.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class VideoController : Controller
+public class VideosController : Controller
 {
     private IMediator _mediator;
 
-    public VideoController(IMediator mediator)
+    public VideosController(IMediator mediator)
     {
         _mediator = mediator;
     }
