@@ -11,8 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/AdvertisementProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/CategoryProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/CommentProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/LikeProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/SeoProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/VideoAndCategoryProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/VideoProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/LikeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/LikeService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +150,7 @@
       <workItem from="1679553780727" duration="7190000" />
       <workItem from="1679608707894" duration="19069000" />
       <workItem from="1679847513017" duration="21024000" />
-      <workItem from="1680425219176" duration="7584000" />
+      <workItem from="1680425219176" duration="9564000" />
     </task>
     <servers />
   </component>
