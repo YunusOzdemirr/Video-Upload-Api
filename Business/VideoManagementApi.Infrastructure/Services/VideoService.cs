@@ -61,8 +61,18 @@ public class VideoService : IVideoService
     public async Task<IResult<List<Video>>> GetVideos(GetVideosQuery query, CancellationToken cancellationToken)
     {
         var videos = query.IsActive == null
-            ? await _videoRepository.GetAllAsync(cancellationToken: cancellationToken)
-            : await _videoRepository.GetAllAsync(a => a.IsActive == query.IsActive, cancellationToken);
+            ? await _videoContext.Videos
+                .Include(a => a.Comments.Where(a => a.IsApproved))
+                .Include(a => a.Likes)
+                .Include(a => a.Seos)
+                .Include(a => a.VideoAndCategories)
+                .ToListAsync(cancellationToken)
+            : await _videoContext.Videos
+                .Include(a => a.Comments.Where(a => a.IsApproved))
+                .Include(a => a.Likes)
+                .Include(a => a.Seos)
+                .Include(a => a.VideoAndCategories)
+                .Where(a => a.IsActive).ToListAsync(cancellationToken);
         return await Result<List<Video>>.SuccessAsync(videos);
     }
 
