@@ -23,13 +23,13 @@ public class CommentService : ICommentService
 
     public async Task<IResult> AddAsync(CreateCommentCommand command, CancellationToken cancellationToken)
     {
-        var video = await _videoContext.Videos.SingleOrDefaultAsync(a => a.Id == command.VideoId, cancellationToken);
+        var video = await _videoContext.Videos.Include(a=>a.Comments).SingleOrDefaultAsync(a => a.Id == command.VideoId, cancellationToken);
         if (video == null)
             return await Result.FailAsync();
         var comment = _mapper.Map<Comment>(command);
         comment.Video = video;
         comment.CreatedDate = DateTime.Now;
-        video.Comments.Add(comment);
+        video.Comments?.Add(comment);
         await _commentRepository.AddAsync(comment, cancellationToken);
         return await Result.SuccessAsync();
     }

@@ -32,8 +32,14 @@ public class LikeService : ILikeService
             return await Result.FailAsync();
         var like = _mapper.Map<Like>(createLikeCommand);
         like.Video = video;
-        if (video?.Likes != null)
-            video.Likes.Add(like);
+        if (video?.Likes?.Any(a => a.IpAddress == createLikeCommand.IpAddress && a.IsLiked) == true)
+        {
+            var oldLike = video.Likes.SingleOrDefault(a => a.IpAddress == createLikeCommand.IpAddress);
+            video.Likes.Remove(oldLike!);
+        }
+
+        video.Likes?.Add(like);
+        video.ModifiedDate = DateTime.Now;
         await _likeRepository.AddAsync(like, cancellationToken);
         await _videoContext.SaveChangesAsync(cancellationToken);
         return await Result.SuccessAsync();
