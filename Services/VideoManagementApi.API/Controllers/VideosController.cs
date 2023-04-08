@@ -5,7 +5,7 @@ using VideoManagementApi.Application.Features.VideoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Queries;
 using VideoManagementApi.Domain.Common;
 using VideoManagementApi.Domain.Entities;
-using IResult = Microsoft.AspNetCore.Http.IResult;
+using IResult = VideoManagementApi.Domain.Common.IResult;
 
 namespace VideoManagementApi.API.Controllers;
 
