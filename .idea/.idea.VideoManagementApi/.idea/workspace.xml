@@ -10,10 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,6 +143,7 @@
       <workItem from="1679847513017" duration="21024000" />
       <workItem from="1680425219176" duration="11960000" />
       <workItem from="1680882163809" duration="1276000" />
+      <workItem from="1680995951775" duration="84000" />
     </task>
     <servers />
   </component>
