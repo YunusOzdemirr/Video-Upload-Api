@@ -11,7 +11,7 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
         builder.HasKey(a => a.Id);
 
         builder.Property(a => a.Content).IsRequired();
-        builder.Property(a => a.IpAddress).IsRequired();
+        builder.Property(a => a.IpAddress).IsRequired(false);
         builder.Property(a => a.Name).IsRequired();
 
         builder.HasOne<Video>(a => a.Video).WithMany(a => a.Comments).HasForeignKey(a => a.VideoId);

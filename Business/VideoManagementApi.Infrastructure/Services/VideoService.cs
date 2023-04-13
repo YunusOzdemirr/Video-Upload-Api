@@ -26,11 +26,12 @@ public class VideoService : IVideoService
         _videoRepository = videoRepository;
     }
 
-    public async Task<IResult> UploadAsync(CreateVideoCommand createVideoCommand, CancellationToken cancellationToken)
+    public async Task<IResult<int>> UploadAsync(CreateVideoCommand createVideoCommand,
+        CancellationToken cancellationToken)
     {
         var result = await FileUpload.UploadAlternative(createVideoCommand.File, "Videos", "");
         if (!result.Succeeded)
-            return result;
+            return await Result<int>.FailAsync();
         var video = new Video()
         {
             FileName = result.Message,
@@ -40,9 +41,35 @@ public class VideoService : IVideoService
             WatchCount = 0,
         };
         await _videoRepository.AddAsync(video, cancellationToken);
-        await CreateVideoAndCategoriesAsync(createVideoCommand.VideoAndCategories, createVideoCommand.Seos, video.Id,
-            cancellationToken);
-        return await Result.SuccessAsync();
+        return await Result<int>.SuccessAsync(video.Id);
+    }
+
+    public async Task<IResult<int>> UpdateUploadAsync(UpdateVideoContentCommand updateVideoContentCommand,
+        CancellationToken cancellationToken)
+    {
+        var video = await _videoRepository.GetByIdAsync(updateVideoContentCommand.Id, cancellationToken);
+        if (video == null)
+        {
+            var videoCommand = new CreateVideoCommand()
+            {
+                Title = "Video Bilgileri Bekleniyor.",
+                Description = "Upload Başarılı 2. Adım Bekleniyor || Update işlemi içerisinde create edilen video",
+                File = updateVideoContentCommand.File
+            };
+            var videoId = await UploadAsync(videoCommand, cancellationToken);
+            if (videoId.Succeeded)
+                return await Result<int>.SuccessAsync(data: videoId.Data as int? ?? default(int));
+            return await Result<int>.FailAsync(default(int));
+        }
+
+        var result = await FileUpload.UploadAlternative(updateVideoContentCommand.File, "Videos", "");
+        if (!result.Succeeded)
+            return await Result<int>.FailAsync();
+        await FileUpload.Delete(video.FilePath);
+        video.FileName = result.Message;
+        video.FilePath = result.Data as string;
+        await _videoRepository.UpdateAsync(video, cancellationToken);
+        return await Result<int>.SuccessAsync(video.Id);
     }
 
     public async Task<IResult> UpdateAsync(UpdateVideoCommand updateVideoCommand, CancellationToken cancellationToken)

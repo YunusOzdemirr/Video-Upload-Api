@@ -28,6 +28,18 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         var entity = await _context.Set<T>().FirstOrDefaultAsync(a => a.Id.Equals(id), cancellationToken);
         if (entity == null)
             return false;
+        entity.IsActive = false;
+        entity.ModifiedDate=DateTime.Now;
+        _context.Update(entity);
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+    
+    public virtual async Task<bool> HardDeleteByIdAsync(int id, CancellationToken cancellationToken)
+    {
+        var entity = await _context.Set<T>().FirstOrDefaultAsync(a => a.Id.Equals(id), cancellationToken);
+        if (entity == null)
+            return false;
         _context.Remove(entity);
         await _context.SaveChangesAsync(cancellationToken);
         return true;

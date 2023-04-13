@@ -7,6 +7,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using VideoManagementApi.API.Extensions.Registration;
+using VideoManagementApi.API.Middleware;
 using VideoManagementApi.Application;
 using VideoManagementApi.Application.Extensions;
 using VideoManagementApi.Domain.Options;
@@ -107,6 +108,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services
     .AddLogging(configure => configure.AddConsole());
 var app = builder.Build();
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
@@ -121,7 +123,6 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();

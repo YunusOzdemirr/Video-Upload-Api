@@ -11,7 +11,6 @@ namespace VideoManagementApi.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
 public class VideoAndCategoriesController : Controller
 {
     private readonly IMediator _mediator;

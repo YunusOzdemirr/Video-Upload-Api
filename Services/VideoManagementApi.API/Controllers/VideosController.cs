@@ -1,6 +1,9 @@
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using VideoManagementApi.API.Providers;
+using VideoManagementApi.API.ViewModels.Requests;
 using VideoManagementApi.Application.Features.VideoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Queries;
 using VideoManagementApi.Domain.Common;
@@ -14,11 +17,16 @@ namespace VideoManagementApi.API.Controllers;
 public class VideosController : Controller
 {
     private IMediator _mediator;
+    private readonly IMapper _mapper;
+    private readonly IClaimProvider _provider;
 
-    public VideosController(IMediator mediator)
+    public VideosController(IMediator mediator, IMapper mapper, IClaimProvider provider)
     {
         _mediator = mediator;
+        _mapper = mapper;
+        _provider = provider;
     }
+
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(IResult<Video>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
@@ -29,7 +37,7 @@ public class VideosController : Controller
             return Ok(result);
         return NotFound(result);
     }
-    
+
     [HttpGet]
     [ProducesResponseType(typeof(IResult<List<Video>>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
@@ -45,19 +53,39 @@ public class VideosController : Controller
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
     [RequestSizeLimit(long.MaxValue)]
-    public async Task<IActionResult> Create([FromForm] CreateVideoCommand command)
+    public async Task<IActionResult> Create([FromForm] CreateVideoRequest request)
     {
+        var command = new CreateVideoCommand()
+        {
+            Title = "Video Bilgileri Bekleniyor.",
+            Description = "Upload Başarılı 2. Adım Bekleniyor",
+            File = request.File,
+            IpAddress = await _provider.GetIpAddress()
+        };
         var result = await _mediator.Send(command);
         if (!result.Succeeded)
             return BadRequest(result);
         return Ok(result);
     }
+    [HttpPut("ContentUpdate/{videoId}")]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> UpdateUpload([FromForm]IFormFile file,int videoId)
+    {
+        var command = new UpdateVideoContentCommand() { File = file, Id = videoId };
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
+    }
 
     [HttpPut]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Update(UpdateVideoCommand command)
+    public async Task<IActionResult> Update(UpdateVideoRequest request)
     {
+        var command = _mapper.Map<UpdateVideoCommand>(request);
+        command.IpAddress = await _provider.GetIpAddress();
         var result = await _mediator.Send(command);
         if (!result.Succeeded)
             return BadRequest(result);

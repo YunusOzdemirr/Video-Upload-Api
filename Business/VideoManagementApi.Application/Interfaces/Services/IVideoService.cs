@@ -8,7 +8,9 @@ namespace VideoManagementApi.Application.Interfaces.Services;
 
 public interface IVideoService
 {
-    Task<IResult> UploadAsync(CreateVideoCommand createVideoCommand, CancellationToken cancellationToken);
+    Task<IResult<int>> UploadAsync(CreateVideoCommand createVideoCommand, CancellationToken cancellationToken);
     Task<IResult> UpdateAsync(UpdateVideoCommand updateVideoCommand, CancellationToken cancellationToken);
+    Task<IResult<int>> UpdateUploadAsync(UpdateVideoContentCommand updateVideoContentCommand,
+        CancellationToken cancellationToken);
     Task<IResult<List<Video>>> GetVideos(GetVideosQuery query, CancellationToken cancellationToken);
 }

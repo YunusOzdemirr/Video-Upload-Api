@@ -1,8 +1,10 @@
 using System.Net;
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using VideoManagementApi.API.ViewModels.Requests;
 using VideoManagementApi.Application.Features.CategoryFeatures.Commands;
 using VideoManagementApi.Application.Features.CategoryFeatures.Queries;
 using VideoManagementApi.Domain.Common;
@@ -13,14 +15,14 @@ namespace VideoManagementApi.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
 public class CategoriesController : Controller
 {
    private readonly IMediator _mediator;
-
-   public CategoriesController(IMediator mediator)
+   private readonly IMapper _mapper;
+   public CategoriesController(IMediator mediator, IMapper mapper)
    {
       _mediator = mediator;
+      _mapper = mapper;
    }
 
    [HttpGet]
@@ -33,15 +35,19 @@ public class CategoriesController : Controller
    }
    [HttpPost]
    [ProducesResponseType(typeof(IResult),StatusCodes.Status200OK)]
-   public async Task<IActionResult> Create(CreateCategoryCommand command)
+   public async Task<IActionResult> Create([FromForm]IFormFile file,[FromBody]CreateCategoryRequest request)
    {
+      var command = _mapper.Map<CreateCategoryCommand>(request);
+      command.File = file;
       var result = await _mediator.Send(command);
       return Ok(result);
    }
    [HttpPut]
    [ProducesResponseType(typeof(IResult),StatusCodes.Status200OK)]
-   public async Task<IActionResult> Update(UpdateCategoryCommand command)
+   public async Task<IActionResult> Update([FromForm]IFormFile file,[FromBody]UpdateCategoryRequest request)
    {
+      var command = _mapper.Map<UpdateCategoryCommand>(request);
+      command.File = file;
       var result = await _mediator.Send(command);
       return Ok(result);
    }
