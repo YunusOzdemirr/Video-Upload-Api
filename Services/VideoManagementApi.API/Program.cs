@@ -53,19 +53,21 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
     });
     c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-    {{
+    {
+        {
             new OpenApiSecurityScheme
             {
-                Reference=new OpenApiReference
+                Reference = new OpenApiReference
                 {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
                 },
-                Scheme="oauth2",
-                Name="Bearer",
-                In=ParameterLocation.Header,
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header,
             },
-            new List<string>() }
+            new List<string>()
+        }
     });
 });
 
@@ -99,6 +101,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
                 // Read the token out of the query string
                 context.Token = accessToken;
             }
+
             return Task.CompletedTask;
         }
     };
@@ -113,6 +116,14 @@ app.UseMiddleware<ExceptionMiddleware>();
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
+
+if (builder.Environment.ContentRootPath.Contains(@"\"))
+    if (!Directory.Exists(builder.Environment.ContentRootPath + @"\wwwroot" + @"\Uploads"))
+        Directory.CreateDirectory(builder.Environment.ContentRootPath + @"\wwwroot" + @"\Uploads");
+
+if (builder.Environment.ContentRootPath.Contains(@"/"))
+    if (!Directory.Exists(builder.Environment.ContentRootPath + "/wwwroot" + "/Uploads"))
+        Directory.CreateDirectory(builder.Environment.ContentRootPath + "/wwwroot" + "/Uploads");
 
 app.UseStaticFiles(new StaticFileOptions
 {

@@ -5,16 +5,20 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["VideoManagementApi.csproj", "./"]
-RUN dotnet restore "VideoManagementApi.csproj"
+COPY ["Services/VideoManagementApi.API/VideoManagementApi.API.csproj", "Services/VideoManagementApi.API/"]
+COPY ["Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj", "Business/VideoManagementApi.Application/"]
+COPY ["Business/VideoManagementApi.Domain/VideoManagementApi.Domain.csproj", "Business/VideoManagementApi.Domain/"]
+COPY ["Business/VideoManagementApi.Infrastructure/VideoManagementApi.Infrastructure.csproj", "Business/VideoManagementApi.Infrastructure/"]
+
+RUN dotnet restore "Services/VideoManagementApi.API/VideoManagementApi.API.csproj"
 COPY . .
-WORKDIR "/src/"
-RUN dotnet build "VideoManagementApi.csproj" -c Release -o /app/build
+WORKDIR "/VideoManagementApi.API"
+RUN dotnet build "/src/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "VideoManagementApi.csproj" -c Release -o /app/publish
+RUN dotnet publish "/src/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "VideoManagementApi.dll"]
+ENTRYPOINT ["dotnet", "VideoManagementApi.API.dll"]

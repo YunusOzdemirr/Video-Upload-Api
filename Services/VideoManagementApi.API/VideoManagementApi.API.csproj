@@ -4,6 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -31,7 +32,6 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Business\VideoManagementApi.Application\VideoManagementApi.Application.csproj" />
-        <ProjectReference Include="..\..\Business\VideoManagementApi.Infrastructure.UnitTest\VideoManagementApi.Infrastructure.UnitTest.csproj" />
         <ProjectReference Include="..\..\Business\VideoManagementApi.Infrastructure\VideoManagementApi.Infrastructure.csproj" />
     </ItemGroup>
     <ItemGroup>
