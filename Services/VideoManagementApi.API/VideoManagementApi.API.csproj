@@ -7,13 +7,6 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
-    <PropertyGroup>
-        <ContainerImageName>videomanagement-api</ContainerImageName>
-        <ContainerImageTags>latest</ContainerImageTags>
-        <PublishProfile>DefaultContainer</PublishProfile>
-        <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
-    </PropertyGroup>
-    
     <ItemGroup>
         <PackageReference Include="Consul" Version="1.6.10.8" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -36,6 +29,7 @@
         <Folder Include="Models" />
         <Folder Include="Models\" />
         <Folder Include="wwwroot\Uploads" />
+        <Folder Include="wwwroot\Uploads\Videos" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\..\Business\VideoManagementApi.Application\VideoManagementApi.Application.csproj" />

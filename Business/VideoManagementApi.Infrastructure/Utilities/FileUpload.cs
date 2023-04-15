@@ -13,12 +13,12 @@ public class FileUpload
         if (!fileExists.Succeeded)
             return fileExists;
         var type = Path.GetExtension(file.FileName);
-        var typeValid =await CheckFileTypeValid(type);
+        var typeValid = await CheckFileTypeValid(type);
         if (!typeValid.Succeeded)
             return typeValid;
         var randomName = Guid.NewGuid().ToString();
-       await CheckDirectoryExists(_currentDirectory);
-       await CreateImageFile(_currentDirectory + randomName + type, file);
+        await CheckDirectoryExists(_currentDirectory);
+        await CreateImageFile(_currentDirectory + randomName + type, file);
         return await Result.SuccessAsync(
             (_currentDirectory + $"/{folderName}/" + randomName + type).Replace("\\", "/"), randomName + type + file);
     }
@@ -31,9 +31,9 @@ public class FileUpload
             Directory.CreateDirectory(_currentDirectory + folderName);
 
         string fileName = Guid.NewGuid().ToString();
-        var path = _currentDirectory + folderName + @"/" + fileName;
-        var virtualPath = "Uploads/" + folderName + "/" + fileName;
         var type = Path.GetExtension(file.FileName);
+        var path = _currentDirectory + folderName + @"/" + fileName + type;
+        var virtualPath = "Uploads/" + folderName + "/" + fileName + type;
         var typeValid = await CheckFileTypeValid(type);
         if (!typeValid.Succeeded)
             return typeValid;
@@ -77,7 +77,8 @@ public class FileUpload
     private static async Task<IResult> CheckFileTypeValid(string type)
     {
         type = type.ToLower();
-        if (type == ".jpeg" || type == ".png" || type == ".jpg" || type==".dng"||type==".gif" || type==".mp4" || type==".m4a")
+        if (type == ".jpeg" || type == ".png" || type == ".jpg" || type == ".dng" || type == ".gif" || type == ".mp4" ||
+            type == ".m4a")
             return await Result.SuccessAsync("Geçerli dosya");
         return await Result.FailAsync("Dosya tipi yanlış formatta.");
     }

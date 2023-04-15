@@ -1,3 +1,4 @@
+using System.Reflection;
 using VideoManagementApi.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +14,8 @@ public static class ServiceRegistration
     public static IServiceCollection AddAInfrastructureRegistration(this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
         services.AddDbContext<VideoContext>(opt =>
         {
             opt.UseSqlServer(configuration["VideoConnectionString"]);

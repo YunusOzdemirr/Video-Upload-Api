@@ -45,7 +45,8 @@ namespace VideoManagementApi.Infrastructure.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost;Database=VideoContext;User=sa;Password=bhdKs3WOp7;");
+            //optionsBuilder.UseSqlServer("Server=localhost;Database=VideoContext;User=sa;Password=bhdKs3WOp7;");
+            optionsBuilder.UseSqlServer("Server=tcp:videomanagement-server-dev.database.windows.net,1433;Initial Catalog=videomanagement-db-dev;Persist Security Info=False;User ID=yunus;Password=jkyhtGLposr!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             base.OnConfiguring(optionsBuilder);
         }
 
