@@ -7,6 +7,13 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <ContainerImageName>videomanagement-api</ContainerImageName>
+        <ContainerImageTags>latest</ContainerImageTags>
+        <PublishProfile>DefaultContainer</PublishProfile>
+        <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+    </PropertyGroup>
+    
     <ItemGroup>
         <PackageReference Include="Consul" Version="1.6.10.8" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -42,4 +49,6 @@
             <DependentUpon>serilog.json</DependentUpon>
         </Content>
     </ItemGroup>
+    
+    
 </Project>

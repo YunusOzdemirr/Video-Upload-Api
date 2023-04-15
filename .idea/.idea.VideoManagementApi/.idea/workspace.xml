@@ -13,7 +13,6 @@
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
