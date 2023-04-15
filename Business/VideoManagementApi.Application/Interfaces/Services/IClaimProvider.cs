@@ -1,4 +1,4 @@
-namespace VideoManagementApi.API.Providers;
+namespace VideoManagementApi.Application.Interfaces.Services;
 
 public interface IClaimProvider
 {

@@ -52,8 +52,11 @@
         <Folder Include="DomainEventHandlers\" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="MediatR" Version="11.1.0" />
-        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+        <PackageReference Include="Mediator.SourceGenerator" Version="2.2.0-preview.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Mediator.Abstractions" Version="2.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
         <PackageReference Include="FluentValidation" Version="11.2.2" />

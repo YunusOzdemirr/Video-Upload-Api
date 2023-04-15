@@ -1,25 +1,21 @@
-using VideoManagementApi.Domain.Entities;
+using VideoManagementApi.Application.Interfaces.Services;
 
 namespace VideoManagementApi.Application.Features.CategoryFeatures.Commands;
 
 public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, IResult>
 {
-    private readonly ICategoryRepository _categoryRepository;
-    private readonly IMapper _mapper;
+    private readonly ICategoryService _categoryService;
 
-    public UpdateCategoryCommandHandler(ICategoryRepository categoryRepository, IMapper mapper)
+    public UpdateCategoryCommandHandler(ICategoryService categoryService)
     {
-        _categoryRepository = categoryRepository;
-        _mapper = mapper;
+        _categoryService = categoryService;
     }
 
     public async Task<IResult> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
     {
-        var category = _mapper.Map<Category>(request);
-        var result = await _categoryRepository.UpdateAsync(category, cancellationToken);
-        if (result)
+        var result = await _categoryService.UpdateAsync(request, cancellationToken);
+        if (result.Succeeded)
             return await Result.SuccessAsync();
-        else
-            return await Result.FailAsync();
+        return await Result.FailAsync();
     }
 }

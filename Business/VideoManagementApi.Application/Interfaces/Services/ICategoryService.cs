@@ -10,4 +10,7 @@ public interface ICategoryService
 
     Task<IResult<List<Category>>> GetAllAsync(GetCategoriesQuery getCategoriesQuery,
         CancellationToken cancellationToken);
+
+    Task<IResult> UpdateAsync(UpdateCategoryCommand updateCategoryCommand,
+        CancellationToken cancellationToken);
 }

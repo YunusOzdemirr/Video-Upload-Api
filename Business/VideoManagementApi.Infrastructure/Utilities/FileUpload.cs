@@ -3,7 +3,7 @@ using VideoManagementApi.Domain.Common;
 
 namespace VideoManagementApi.Infrastructure.Utilities;
 
-public class FileUpload
+public static class FileUpload
 {
     private static string _currentDirectory = Environment.CurrentDirectory + @"/wwwroot/Uploads/";
 

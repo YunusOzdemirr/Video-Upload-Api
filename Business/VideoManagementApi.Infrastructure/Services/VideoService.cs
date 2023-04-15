@@ -18,12 +18,14 @@ public class VideoService : IVideoService
     private readonly VideoContext _videoContext;
     private readonly IVideoRepository _videoRepository;
     private readonly IMapper _mapper;
+    private readonly IClaimProvider _claimProvider;
 
-    public VideoService(VideoContext videoContext, IMapper mapper, IVideoRepository videoRepository)
+    public VideoService(VideoContext videoContext, IMapper mapper, IVideoRepository videoRepository, IClaimProvider claimProvider)
     {
         _videoContext = videoContext;
         _mapper = mapper;
         _videoRepository = videoRepository;
+        _claimProvider = claimProvider;
     }
 
     public async Task<IResult<int>> UploadAsync(CreateVideoCommand createVideoCommand,
@@ -92,12 +94,16 @@ public class VideoService : IVideoService
     {
         var videos = query.IsActive == null
             ? await _videoContext.Videos
+                .AsNoTracking()
+                .AsQueryable()
                 .Include(a => a.Comments.Where(a => a.IsApproved))
                 .Include(a => a.Likes)
                 .Include(a => a.Seos)
                 .Include(a => a.VideoAndCategories)
                 .ToListAsync(cancellationToken)
             : await _videoContext.Videos
+                .AsNoTracking()
+                .AsQueryable()
                 .Include(a => a.Comments.Where(a => a.IsApproved))
                 .Include(a => a.Likes)
                 .Include(a => a.Seos)
@@ -121,6 +127,7 @@ public class VideoService : IVideoService
             foreach (var seoCommand in seos)
             {
                 seoCommand.VideoId = videoId;
+                seoCommand.IpAddress =await _claimProvider.GetIpAddress();
                 var seo = _mapper.Map<Seo>(seoCommand);
                 await _videoContext.Seos.AddAsync(seo, cancellationToken);
             }

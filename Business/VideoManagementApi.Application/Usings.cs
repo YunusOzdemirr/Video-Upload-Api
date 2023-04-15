@@ -5,6 +5,4 @@ global using FluentValidation;
 global using VideoManagementApi.Domain.Common;
 global using VideoManagementApi.Application.Behaviors;
 global using Microsoft.Extensions.DependencyInjection;
-global using AutoMapper;
-global using Microsoft.EntityFrameworkCore;
 global using VideoManagementApi.Application.Interfaces.Repositories;

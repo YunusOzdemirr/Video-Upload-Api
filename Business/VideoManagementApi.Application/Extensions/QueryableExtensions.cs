@@ -11,9 +11,9 @@ namespace VideoManagementApi.Application.Extensions
             if (source is null) throw new ApiException();
             pageNumber = pageNumber == 0 ? 1 : pageNumber;
             pageSize = pageSize == 0 ? 10 : pageSize;
-            int count = await source.CountAsync();
+            int count = source.Count();
             pageNumber = pageNumber <= 0 ? 1 : pageNumber;
-            List<T> items = await source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+            List<T> items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
             return PaginatedResult<T>.Success(items, count, pageNumber, pageSize);
         }
 
