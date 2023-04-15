@@ -1,3 +1,5 @@
+using VideoManagementApi.Application.Interfaces.Services;
+
 namespace VideoManagementApi.API.Providers;
 
 public class ClaimProvider : IClaimProvider

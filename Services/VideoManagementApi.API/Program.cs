@@ -32,6 +32,27 @@ builder.Services.AddSingleton<IClaimProvider, ClaimProvider>();
 builder.Services.AddAutoMapper(typeof(ViewModelMapping));
 builder.Services.AddServiceDiscoveryRegistration(builder.Configuration);
 
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    );
+
+// builder.Services.AddControllers()
+//     .AddJsonOptions(opts =>
+//     {
+//         var enumConverter = new JsonStringEnumConverter();
+//         opts.JsonSerializerOptions.Converters.Add(enumConverter);
+//         opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull;
+//     });
+
+builder.Services.Configure<JsonOptions>(options => 
+    options.SerializerOptions.DefaultIgnoreCondition 
+        = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull);
+
+// builder.Services.AddMvc().AddJsonOptions(options =>
+// {
+//     options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+// });
 string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
 builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())

@@ -8,6 +8,6 @@ public class UpdateVideoRequest
     public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
-    public List<CreateSeoCommand>? Seos { get; set; }
-    public List<CreateVideoAndCategoryCommand>? VideoAndCategories { get; set; }
+    public List<CreateSeoInUpdateVideoRequest>? Seos { get; set; }
+    public List<CreateVideoAndCategoryInVideoUpdateRequest>? VideoAndCategories { get; set; }
 }
