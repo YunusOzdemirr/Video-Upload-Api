@@ -19,7 +19,7 @@ FROM build AS publish
 RUN dotnet publish "/src/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
-WORKDIR /app
+WORKDIR /src
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "VideoManagementApi.API.dll"]
 
