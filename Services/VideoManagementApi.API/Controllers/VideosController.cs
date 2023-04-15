@@ -41,9 +41,9 @@ public class VideosController : Controller
     [HttpGet]
     [ProducesResponseType(typeof(IResult<List<Video>>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> Get(bool? isActive)
     {
-        var result = await _mediator.Send(new GetVideosQuery());
+        var result = await _mediator.Send(new GetVideosQuery() { IsActive = isActive });
         if ((result?.Data as List<Video>).Count > 0)
             return Ok(result);
         return NotFound(result);
@@ -67,12 +67,13 @@ public class VideosController : Controller
             return BadRequest(result);
         return Ok(result);
     }
+
     [HttpPut("ContentUpdate/{videoId}")]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> UpdateUpload([FromForm]IFormFile file,int videoId)
+    public async Task<IActionResult> UpdateUpload([FromForm] CreateVideoRequest request, int videoId)
     {
-        var command = new UpdateVideoContentCommand() { File = file, Id = videoId };
+        var command = new UpdateVideoContentCommand() { File = request.File, Id = videoId };
         var result = await _mediator.Send(command);
         if (result.Succeeded)
             return Ok(result);

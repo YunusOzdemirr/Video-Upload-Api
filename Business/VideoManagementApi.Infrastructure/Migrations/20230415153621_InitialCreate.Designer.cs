@@ -12,8 +12,8 @@ using VideoManagementApi.Infrastructure.Context;
 namespace VideoManagementApi.Infrastructure.Migrations
 {
     [DbContext(typeof(VideoContext))]
-    [Migration("20230326190603_InitalCreate")]
-    partial class InitalCreate
+    [Migration("20230415153621_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -140,7 +140,6 @@ namespace VideoManagementApi.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("IpAddress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -271,13 +270,11 @@ namespace VideoManagementApi.Infrastructure.Migrations
 
                     b.Property<string>("FileName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FilePath")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");

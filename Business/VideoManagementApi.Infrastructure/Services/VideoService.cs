@@ -39,6 +39,7 @@ public class VideoService : IVideoService
             Description = createVideoCommand.Description,
             Title = createVideoCommand.Title,
             WatchCount = 0,
+            IsActive = false
         };
         await _videoRepository.AddAsync(video, cancellationToken);
         return await Result<int>.SuccessAsync(video.Id);
@@ -54,7 +55,7 @@ public class VideoService : IVideoService
             {
                 Title = "Video Bilgileri Bekleniyor.",
                 Description = "Upload Başarılı 2. Adım Bekleniyor || Update işlemi içerisinde create edilen video",
-                File = updateVideoContentCommand.File
+                File = updateVideoContentCommand.File,
             };
             var videoId = await UploadAsync(videoCommand, cancellationToken);
             if (videoId.Succeeded)
@@ -68,6 +69,7 @@ public class VideoService : IVideoService
         await FileUpload.Delete(video.FilePath);
         video.FileName = result.Message;
         video.FilePath = result.Data as string;
+        video.IsActive = true;
         await _videoRepository.UpdateAsync(video, cancellationToken);
         return await Result<int>.SuccessAsync(video.Id);
     }
@@ -79,6 +81,7 @@ public class VideoService : IVideoService
         if (video == null)
             return await Result.FailAsync();
         var newVideo = _mapper.Map<UpdateVideoCommand, Video>(updateVideoCommand, video);
+        newVideo.IsActive = true;
         await _videoRepository.UpdateAsync(newVideo, cancellationToken);
         await CreateVideoAndCategoriesAsync(updateVideoCommand.VideoAndCategories, updateVideoCommand.Seos, video.Id,
             cancellationToken);

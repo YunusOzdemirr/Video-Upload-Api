@@ -12,14 +12,15 @@
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/ServiceRegistration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/ServiceRegistration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Utilities/FileUpload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Utilities/FileUpload.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326190603_InitalCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326190603_InitalCreate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326194341_InitalCreate1.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326194341_InitalCreate1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/VideoContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,19 +193,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs</url>
-          <line>76</line>
-          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" initialLine="76" containingFunctionPresentation="method 'UpdateAsync'">
-            <startOffsets>
-              <option value="3265" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3392" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
