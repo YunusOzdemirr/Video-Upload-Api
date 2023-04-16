@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using VideoManagementApi.Application.Features.AdvertisementFeatures.Commands;
 using VideoManagementApi.Application.Features.SeoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoAndCategoryFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Commands;
@@ -8,6 +9,7 @@ using VideoManagementApi.Application.Features.VideoFeatures.Queries;
 using VideoManagementApi.Application.Interfaces.Services;
 using VideoManagementApi.Domain.Common;
 using VideoManagementApi.Domain.Entities;
+using VideoManagementApi.Domain.Enums;
 using VideoManagementApi.Infrastructure.Context;
 using VideoManagementApi.Infrastructure.Utilities;
 
@@ -20,7 +22,8 @@ public class VideoService : IVideoService
     private readonly IMapper _mapper;
     private readonly IClaimProvider _claimProvider;
 
-    public VideoService(VideoContext videoContext, IMapper mapper, IVideoRepository videoRepository, IClaimProvider claimProvider)
+    public VideoService(VideoContext videoContext, IMapper mapper, IVideoRepository videoRepository,
+        IClaimProvider claimProvider)
     {
         _videoContext = videoContext;
         _mapper = mapper;
@@ -78,16 +81,37 @@ public class VideoService : IVideoService
 
     public async Task<IResult> UpdateAsync(UpdateVideoCommand updateVideoCommand, CancellationToken cancellationToken)
     {
-        var video = await _videoContext.Videos.SingleOrDefaultAsync(a => a.Id == updateVideoCommand.Id,
-            cancellationToken);
+        var video = await _videoContext.Videos.Include(a => a.Seos).Include(a => a.VideoAndCategories)
+            .SingleOrDefaultAsync(a => a.Id == updateVideoCommand.Id,
+                cancellationToken);
         if (video == null)
             return await Result.FailAsync();
+        updateVideoCommand.Seos = await SetVideoIdToSeo(updateVideoCommand.Seos, updateVideoCommand.Id);
+        updateVideoCommand.VideoAndCategories =
+            await SetVideoIdToCategories(updateVideoCommand.VideoAndCategories, updateVideoCommand.Id);
         var newVideo = _mapper.Map<UpdateVideoCommand, Video>(updateVideoCommand, video);
         newVideo.IsActive = true;
         await _videoRepository.UpdateAsync(newVideo, cancellationToken);
-        await CreateVideoAndCategoriesAsync(updateVideoCommand.VideoAndCategories, updateVideoCommand.Seos, video.Id,
-            cancellationToken);
         return await Result.SuccessAsync();
+    }
+
+    private async Task<List<CreateSeoCommand>> SetVideoIdToSeo(List<CreateSeoCommand> seos, int videoId)
+    {
+        foreach (var seo in seos)
+        {
+            seo.VideoId = videoId;
+        }
+        return await Task.FromResult(seos);
+    }
+
+    private async Task<List<CreateVideoAndCategoryCommand>> SetVideoIdToCategories(
+        List<CreateVideoAndCategoryCommand> categories, int videoId)
+    {
+        foreach (var category in categories)
+        {
+            category.VideoId = videoId;
+        }
+        return await Task.FromResult(categories);
     }
 
     public async Task<IResult<List<Video>>> GetVideos(GetVideosQuery query, CancellationToken cancellationToken)
@@ -112,26 +136,13 @@ public class VideoService : IVideoService
         return await Result<List<Video>>.SuccessAsync(videos);
     }
 
-    private async Task<bool> CreateVideoAndCategoriesAsync(List<CreateVideoAndCategoryCommand> videoAndCategories,
-        List<CreateSeoCommand> seos, int videoId, CancellationToken cancellationToken)
+    public async Task<IResult> AddCountAsync(AddCountVideoCommand command, CancellationToken cancellationToken)
     {
-        if (videoAndCategories != null && videoAndCategories.Count > 0)
-            foreach (var videoAndCategoryCommand in videoAndCategories)
-            {
-                videoAndCategoryCommand.VideoId = videoId;
-                var videoAndCategory = _mapper.Map<VideoAndCategory>(videoAndCategoryCommand);
-                await _videoContext.VideoAndCategories.AddAsync(videoAndCategory, cancellationToken);
-            }
-
-        if (seos != null && seos.Count > 0)
-            foreach (var seoCommand in seos)
-            {
-                seoCommand.VideoId = videoId;
-                seoCommand.IpAddress =await _claimProvider.GetIpAddress();
-                var seo = _mapper.Map<Seo>(seoCommand);
-                await _videoContext.Seos.AddAsync(seo, cancellationToken);
-            }
-
-        return await _videoContext.SaveChangesAsync(cancellationToken) > 1;
+        var video = await _videoRepository.GetByIdAsync(command.Id, cancellationToken);
+        if (video == null)
+            return await Result.FailAsync();
+        video.WatchCount++;
+        await _videoRepository.UpdateAsync(video, cancellationToken);
+        return await Result.SuccessAsync();
     }
 }

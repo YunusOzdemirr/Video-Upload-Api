@@ -13,4 +13,5 @@ public interface IVideoService
     Task<IResult<int>> UpdateUploadAsync(UpdateVideoContentCommand updateVideoContentCommand,
         CancellationToken cancellationToken);
     Task<IResult<List<Video>>> GetVideos(GetVideosQuery query, CancellationToken cancellationToken);
+    Task<IResult> AddCountAsync(AddCountVideoCommand command, CancellationToken cancellationToken);
 }

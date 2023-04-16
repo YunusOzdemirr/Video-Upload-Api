@@ -32,7 +32,6 @@ public class ViewModelMapping : Profile
     public void CreateCategoryMapping()
     {
         CreateMap<CreateCategoryRequest, CreateCategoryCommand>();
-        CreateMap<UpdateCategoryRequest, UpdateCategoryCommand>();
     }
 
     public void CreateCommentMapping()

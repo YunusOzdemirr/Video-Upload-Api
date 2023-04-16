@@ -43,7 +43,7 @@ public class CategoryService : ICategoryService
             await _repository.GetByIdAsync(updateCategoryCommand.Id, cancellationToken);
         if (categoryExist == null)
             return await Result.FailAsync();
-        var newCategory = _mapper.Map<UpdateCategoryCommand,Category>(updateCategoryCommand,categoryExist);
+        var newCategory = _mapper.Map<UpdateCategoryCommand, Category>(updateCategoryCommand, categoryExist);
         var result = await FileUpload.UploadAlternative(updateCategoryCommand.File, "Categories", "");
         if (!result.Succeeded)
             return await Result<int>.FailAsync();
@@ -58,5 +58,15 @@ public class CategoryService : ICategoryService
     {
         var categories = await _repository.GetAllAsync(cancellationToken: cancellationToken);
         return await Result<List<Category>>.SuccessAsync(categories);
+    }
+
+    public async Task<IResult> AddCountAsync(AddCountCategoryCommand command, CancellationToken cancellationToken)
+    {
+        var category = await _repository.GetByIdAsync(command.Id, cancellationToken);
+        if (category == null)
+            return await Result.FailAsync();
+        category.ClickCount++;
+        await _repository.UpdateAsync(category, cancellationToken);
+        return await Result.SuccessAsync();
     }
 }

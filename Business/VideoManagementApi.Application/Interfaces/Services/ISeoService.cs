@@ -8,4 +8,5 @@ public interface ISeoService
     Task<IResult> CreateAsync(CreateSeoCommand createSeoCommand, CancellationToken cancellationToken);
     Task<IResult> UpdateAsync(UpdateSeoCommand updateSeoCommand, CancellationToken cancellationToken);
     Task<IResult<List<Seo>>> GetSeosByVideoIdAsync(int videoId, CancellationToken cancellationToken);
+    Task<IResult> DeleteSeoByVideoId(int videoId, int seoId, CancellationToken cancellationToken);
 }

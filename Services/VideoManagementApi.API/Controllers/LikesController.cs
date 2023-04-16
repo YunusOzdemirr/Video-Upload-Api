@@ -1,11 +1,10 @@
 using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using VideoManagementApi.API.Providers;
 using VideoManagementApi.API.ViewModels.Requests;
 using VideoManagementApi.Application.Features.LikeFeatures.Commands;
 using VideoManagementApi.Application.Features.LikeFeatures.Queries;
+using VideoManagementApi.Application.Interfaces.Services;
 using VideoManagementApi.Domain.Common;
 using VideoManagementApi.Domain.Entities;
 using IResult = VideoManagementApi.Domain.Common.IResult;
@@ -35,11 +34,11 @@ public class LikesController : Controller
         return Ok(Result.SuccessAsync());
     }
 
-    [HttpPost]
+    [HttpPost("{videoId}/{isLiked}")]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Create(CreateOrUpdateLikeRequest request)
+    public async Task<IActionResult> Create(int videoId,bool isLiked)
     {
-        var command = _mapper.Map<CreateOrUpdateLikeCommand>(request);
+        var command = new CreateOrUpdateLikeCommand() { VideoId = videoId,IsLiked = isLiked};
         command.IpAddress =await _provider.GetIpAddress();
         await _mediator.Send(command);
         return Ok(Result.SuccessAsync());

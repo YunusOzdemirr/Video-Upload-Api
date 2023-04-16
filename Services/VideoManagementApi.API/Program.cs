@@ -1,17 +1,21 @@
 ﻿using System.Reflection;
+using System.Text.Json.Serialization;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using VideoManagementApi.API.Extensions.Registration;
 using VideoManagementApi.API.Mappings;
 using VideoManagementApi.API.Middleware;
 using VideoManagementApi.API.Providers;
 using VideoManagementApi.Application;
 using VideoManagementApi.Application.Extensions;
+using VideoManagementApi.Application.Interfaces.Services;
 using VideoManagementApi.Domain.Options;
 using VideoManagementApi.Infrastructure;
 using VideoManagementApi.Infrastructure.Extensions;
@@ -21,7 +25,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -36,23 +39,15 @@ builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
     );
+builder.Services.AddControllers()
+    .AddJsonOptions(opts =>
+    {
+        var enumConverter = new JsonStringEnumConverter();
+        opts.JsonSerializerOptions.Converters.Add(enumConverter);
+        opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull;
+    });
 
-// builder.Services.AddControllers()
-//     .AddJsonOptions(opts =>
-//     {
-//         var enumConverter = new JsonStringEnumConverter();
-//         opts.JsonSerializerOptions.Converters.Add(enumConverter);
-//         opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull;
-//     });
 
-builder.Services.Configure<JsonOptions>(options => 
-    options.SerializerOptions.DefaultIgnoreCondition 
-        = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull);
-
-// builder.Services.AddMvc().AddJsonOptions(options =>
-// {
-//     options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-// });
 string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
 builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())

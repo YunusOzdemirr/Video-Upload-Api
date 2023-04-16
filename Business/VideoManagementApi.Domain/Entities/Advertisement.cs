@@ -9,6 +9,8 @@ public  class Advertisement : BaseEntity
     public string FilePath { get; set; }
     public string FileName { get; set; }
     public string Url { get; set; }
+    public string Orginator { get; set; }
+    public string OrginatorPhone { get; set; }
     public int WatchCount { get; set; }
     public int ClickCount { get; set; }
     public int Rank { get; set; }

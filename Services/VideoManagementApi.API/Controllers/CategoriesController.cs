@@ -17,38 +17,56 @@ namespace VideoManagementApi.API.Controllers;
 [ApiController]
 public class CategoriesController : Controller
 {
-   private readonly IMediator _mediator;
-   private readonly IMapper _mapper;
-   public CategoriesController(IMediator mediator, IMapper mapper)
-   {
-      _mediator = mediator;
-      _mapper = mapper;
-   }
+    private readonly IMediator _mediator;
+    private readonly IMapper _mapper;
 
-   [HttpGet]
-   [ProducesResponseType(typeof(IResult<List<Category>>),StatusCodes.Status200OK)]
-   public async Task<IActionResult> Get()
-   {
-      var query = new GetCategoriesQuery();
-      var result = await _mediator.Send(query);
-      return Ok(result);
-   }
-   [HttpPost]
-   [ProducesResponseType(typeof(IResult),StatusCodes.Status200OK)]
-   public async Task<IActionResult> Create([FromForm]IFormFile file,[FromBody]CreateCategoryRequest request)
-   {
-      var command = _mapper.Map<CreateCategoryCommand>(request);
-      command.File = file;
-      var result = await _mediator.Send(command);
-      return Ok(result);
-   }
-   [HttpPut]
-   [ProducesResponseType(typeof(IResult),StatusCodes.Status200OK)]
-   public async Task<IActionResult> Update([FromForm]IFormFile file,[FromBody]UpdateCategoryRequest request)
-   {
-      var command = _mapper.Map<UpdateCategoryCommand>(request);
-      command.File = file;
-      var result = await _mediator.Send(command);
-      return Ok(result);
-   }
+    public CategoriesController(IMediator mediator, IMapper mapper)
+    {
+        _mediator = mediator;
+        _mapper = mapper;
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(IResult<List<Category>>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Get()
+    {
+        var query = new GetCategoriesQuery();
+        var result = await _mediator.Send(query);
+        return Ok(result);
+    }
+
+    [HttpPost]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Create([FromForm] CreateCategoryRequest request)
+    {
+        var command = _mapper.Map<CreateCategoryCommand>(request);
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+
+    [HttpDelete]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var command = new DeleteCategoryCommand() { Id = id };
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+
+    [HttpPut]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Update([FromForm] UpdateCategoryCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+
+    [HttpPut("AddCount/{id}")]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> AddCount(int id)
+    {
+        var command = new AddCountCategoryCommand() { Id = id };
+        return Ok(await _mediator.Send(command));
+    }
 }

@@ -6,6 +6,7 @@ using VideoManagementApi.API.Providers;
 using VideoManagementApi.API.ViewModels.Requests;
 using VideoManagementApi.Application.Features.VideoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Queries;
+using VideoManagementApi.Application.Interfaces.Services;
 using VideoManagementApi.Domain.Common;
 using VideoManagementApi.Domain.Entities;
 using IResult = VideoManagementApi.Domain.Common.IResult;

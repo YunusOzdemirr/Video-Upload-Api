@@ -6,6 +6,7 @@ using VideoManagementApi.API.Providers;
 using VideoManagementApi.API.ViewModels.Requests;
 using VideoManagementApi.Application.Features.SeoFeatures.Commands;
 using VideoManagementApi.Application.Features.SeoFeatures.Queries;
+using VideoManagementApi.Application.Interfaces.Services;
 using VideoManagementApi.Domain.Common;
 using VideoManagementApi.Domain.Entities;
 using IResult = VideoManagementApi.Domain.Common.IResult;
@@ -18,11 +19,9 @@ public class SeosController : Controller
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
-    private readonly IClaimProvider _provider;
-    public SeosController(IMediator mediator, IClaimProvider provider, IMapper mapper)
+    public SeosController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
-        _provider = provider;
         _mapper = mapper;
     }
 
@@ -40,7 +39,6 @@ public class SeosController : Controller
     public async Task<IActionResult> Create(CreateSeoRequest request)
     {
         var command = _mapper.Map<CreateSeoCommand>(request);
-        command.IpAddress =await _provider.GetIpAddress();
         var result = await _mediator.Send(command);
         return Ok(result);
     }
@@ -50,8 +48,16 @@ public class SeosController : Controller
     public async Task<IActionResult> Update(UpdateSeoRequest request)
     {
         var command = _mapper.Map<UpdateSeoCommand>(request);
-        command.IpAddress = await _provider.GetIpAddress();
         var result = await _mediator.Send(command);
         return Ok(result);
     }
+    
+    [HttpDelete]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Update(DeleteSeoByVideoIdCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+    
 }

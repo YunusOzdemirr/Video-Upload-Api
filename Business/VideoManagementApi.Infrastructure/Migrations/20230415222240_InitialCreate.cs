@@ -20,6 +20,8 @@ namespace VideoManagementApi.Infrastructure.Migrations
                     FilePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Orginator = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrginatorPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     WatchCount = table.Column<int>(type: "int", nullable: false),
                     ClickCount = table.Column<int>(type: "int", nullable: false),
                     Rank = table.Column<int>(type: "int", nullable: false),

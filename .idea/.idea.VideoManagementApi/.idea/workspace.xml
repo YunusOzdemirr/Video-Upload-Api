@@ -11,16 +11,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/AddCountAdvertisementCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/AddCountAdvertisementCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementContentCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementContentCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/AddCountCategoryCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/AddCountCategoryCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/DeleteCategoryCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/SeoFeatures/Commands/DeleteSeoByVideoIdCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/SeoFeatures/Commands/DeleteSeoByVideoIdCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoFeatures/Commands/AddCountVideoCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/VideoFeatures/Commands/AddCountVideoCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Enums/CountType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326190603_InitalCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326190603_InitalCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326194341_InitalCreate1.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230326194341_InitalCreate1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/CreateAdvertisementCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/CreateAdvertisementCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/CreateAdvertisementCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/CreateAdvertisementCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/CreateCategoryCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/CreateCategoryCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/SeoFeatures/Commands/CreateSeoCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/SeoFeatures/Commands/CreateSeoCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IAdvertisementService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IAdvertisementService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/ICategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/ICategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/ISeoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/ISeoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IVideoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/IVideoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/ServiceRegistration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/ServiceRegistration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Advertisement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Advertisement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/Configurations/AdvertisementConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/Configurations/AdvertisementConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/VideoProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Mappings/VideoProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230415153621_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/20230415153621_InitialCreate.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/VideoContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/CategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/SeoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/SeoService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/AdvertisementsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/AdvertisementsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CategoriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CategoriesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CommentsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CommentsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/LikesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/LikesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/SeosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/SeosController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/CreateAdvertisementRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/CreateAdvertisementRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/CreateCategoryRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/CreateCategoryRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/UpdateAdvertisementRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/UpdateAdvertisementRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/UpdateCategoryRequest.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +67,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../Azure/VideoManagement/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/CreateCategoryCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/CreateCategoryCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/DeleteCategoryCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CategoryFeatures/Commands/UpdateCategoryCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Services/ICategoryService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1fe1053177b343d6b0404279c98ec5f6209800/6b/8bb58dc3/ApplicationModelFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7089f10d9344224ab6a341dbb3570103c200/48/3d80e1f7/IResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11a2aa831d04e8eba36f4248c870ea110e00/20/12f28691/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
@@ -159,6 +202,7 @@
       <workItem from="1680425219176" duration="11960000" />
       <workItem from="1680882163809" duration="1276000" />
       <workItem from="1680995951775" duration="84000" />
+      <workItem from="1681593457170" duration="8550000" />
     </task>
     <servers />
   </component>
@@ -193,6 +237,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs</url>
+          <line>38</line>
+          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" initialLine="38" containingFunctionPresentation="method 'UpdateUploadAsync'">
+            <startOffsets>
+              <option value="1632" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1733" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs</url>
+          <line>84</line>
+          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" initialLine="84" containingFunctionPresentation="method 'AddCountAsync'">
+            <startOffsets>
+              <option value="4013" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4095" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs</url>
+          <line>91</line>
+          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/VideoService.cs" initialLine="84" containingFunctionPresentation="method 'UpdateAsync'">
+            <startOffsets>
+              <option value="4111" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4192" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

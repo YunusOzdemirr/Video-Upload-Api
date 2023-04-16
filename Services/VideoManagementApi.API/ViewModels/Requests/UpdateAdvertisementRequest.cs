@@ -6,7 +6,7 @@ public class UpdateAdvertisementRequest
     public string Name { get; set; }
     public string Description { get; set; }
     public string Url { get; set; }
-    public int WatchCount { get; set; }
-    public int ClickCount { get; set; }
+    public string Orginator { get; set; }
+    public string OrginatorPhone { get; set; }
     public int Rank { get; set; }
 }

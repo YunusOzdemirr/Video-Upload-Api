@@ -1,11 +1,10 @@
 using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using VideoManagementApi.API.Providers;
 using VideoManagementApi.API.ViewModels.Requests;
 using VideoManagementApi.Application.Features.CommentFeatures.Commands;
 using VideoManagementApi.Application.Features.CommentFeatures.Queries;
+using VideoManagementApi.Application.Interfaces.Services;
 using VideoManagementApi.Domain.Common;
 using VideoManagementApi.Domain.Entities;
 using IResult = VideoManagementApi.Domain.Common.IResult;

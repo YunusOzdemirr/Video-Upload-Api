@@ -13,4 +13,6 @@ public interface ICategoryService
 
     Task<IResult> UpdateAsync(UpdateCategoryCommand updateCategoryCommand,
         CancellationToken cancellationToken);
+
+    Task<IResult> AddCountAsync(AddCountCategoryCommand command, CancellationToken cancellationToken);
 }

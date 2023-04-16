@@ -12,8 +12,8 @@ using VideoManagementApi.Infrastructure.Context;
 namespace VideoManagementApi.Infrastructure.Migrations
 {
     [DbContext(typeof(VideoContext))]
-    [Migration("20230415153621_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230415222852_InitialCreate2")]
+    partial class InitialCreate2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,15 +42,12 @@ namespace VideoManagementApi.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FilePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -63,14 +60,18 @@ namespace VideoManagementApi.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Orginator")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrginatorPhone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rank")
                         .HasColumnType("int");
 
                     b.Property<string>("Url")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("WatchCount")

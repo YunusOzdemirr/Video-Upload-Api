@@ -1,4 +1,5 @@
 using AutoMapper;
+using VideoManagementApi.Application.Features.SeoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Commands;
 using VideoManagementApi.Domain.Entities;
 

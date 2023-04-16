@@ -61,12 +61,28 @@ public class SeoService : ISeoService
 
     public async Task<IResult<List<Seo>>> GetSeosByVideoIdAsync(int videoId, CancellationToken cancellationToken)
     {
-        var video = await _videoContext
-            .Videos
+        var seos = await _videoContext
+            .Seos
+            .Where(a => a.VideoId == videoId).ToListAsync(cancellationToken);
+        if (seos == null)
+            return await Result<List<Seo>>.FailAsync();
+        return await Result<List<Seo>>.SuccessAsync(seos);
+    }
+
+    public async Task<IResult> DeleteSeoByVideoId(int videoId, int seoId, CancellationToken cancellationToken)
+    {
+        var video = await _videoContext.Videos
             .Include(a => a.Seos)
             .SingleOrDefaultAsync(a => a.Id == videoId, cancellationToken);
         if (video == null)
-            return await Result<List<Seo>>.FailAsync();
-        return await Result<List<Seo>>.SuccessAsync(video.Seos.ToList());
+            return await Result.FailAsync();
+        var seo = video.Seos.SingleOrDefault(a => a.Id == seoId);
+        if (seo == null)
+            return await Result.FailAsync();
+        video.Seos.Remove(seo);
+        video.ModifiedDate=DateTime.Now;
+        _videoContext.Update(video);
+        await _videoContext.SaveChangesAsync(cancellationToken);
+        return await Result.SuccessAsync();
     }
 }
