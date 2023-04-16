@@ -11,22 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Commands/CreateReportCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Commands/CreateReportCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Queries/GetReportsQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Queries/GetReportsQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Repositories/IReportRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Mappings/ReportMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Report.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Enums/ReportType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/Configurations/ReportConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Repositories/ReportRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/ReportsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/CreateReportRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +155,7 @@
       <workItem from="1680425219176" duration="11960000" />
       <workItem from="1680882163809" duration="1276000" />
       <workItem from="1680995951775" duration="84000" />
-      <workItem from="1681593457170" duration="12490000" />
+      <workItem from="1681593457170" duration="14569000" />
     </task>
     <servers />
   </component>
