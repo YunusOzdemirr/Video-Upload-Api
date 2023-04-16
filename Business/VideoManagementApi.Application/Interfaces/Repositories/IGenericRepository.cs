@@ -19,5 +19,6 @@ namespace VideoManagementApi.Application.Interfaces.Repositories
         Task<bool> DeleteByIdAsync(int id, CancellationToken cancellationToken);
         Task<bool> HardDeleteByIdAsync(int id, CancellationToken cancellationToken);
         Task<bool> UpdateAsync(T entity, CancellationToken cancellationToken);
+        Task<bool> ChangeStatusAsync(int id, bool isActive, CancellationToken cancellationToken);
     }
 }

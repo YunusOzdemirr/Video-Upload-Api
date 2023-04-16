@@ -29,12 +29,12 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         if (entity == null)
             return false;
         entity.IsActive = false;
-        entity.ModifiedDate=DateTime.Now;
+        entity.ModifiedDate = DateTime.Now;
         _context.Update(entity);
         await _context.SaveChangesAsync(cancellationToken);
         return true;
     }
-    
+
     public virtual async Task<bool> HardDeleteByIdAsync(int id, CancellationToken cancellationToken)
     {
         var entity = await _context.Set<T>().FirstOrDefaultAsync(a => a.Id.Equals(id), cancellationToken);
@@ -67,7 +67,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
 
     public virtual async Task<T> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
-        return await _context.Set<T>().SingleOrDefaultAsync(a => a.Id.Equals(id),cancellationToken);
+        return await _context.Set<T>().SingleOrDefaultAsync(a => a.Id.Equals(id), cancellationToken);
     }
 
     public virtual async Task<bool> UpdateAsync(T entity, CancellationToken cancellationToken)
@@ -75,6 +75,15 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         _context.Entry<T>(entity).State = EntityState.Modified;
         entity.ModifiedDate = DateTime.Now;
         await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+    public virtual async Task<bool> ChangeStatusAsync(int id, bool isActive, CancellationToken cancellationToken)
+    {
+        var entity = await _context.Set<T>().SingleOrDefaultAsync(a => a.Id.Equals(id), cancellationToken);
+        entity.ModifiedDate = DateTime.Now;
+        entity.IsActive = isActive;
+        await _context.SaveEntitiesAsync(cancellationToken);
         return true;
     }
 }

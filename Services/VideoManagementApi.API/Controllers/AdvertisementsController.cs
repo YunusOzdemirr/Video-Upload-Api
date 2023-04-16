@@ -100,6 +100,16 @@ public class AdvertisementsController : Controller
             return Ok(result);
         return BadRequest();
     }
+    [HttpPut("ChangeStatus")]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ChangeStatus(ChangeStatusAdvertisementCommand command)
+    {
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
+    }
 
     [HttpDelete]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]

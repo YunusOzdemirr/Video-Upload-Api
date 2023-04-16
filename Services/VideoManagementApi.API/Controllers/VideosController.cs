@@ -93,4 +93,16 @@ public class VideosController : Controller
             return Ok(result);
         return BadRequest(result);
     }
+    
+    [HttpPut("ChangeStatus")]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ChangeStatus(ChangeStatusVideoCommand command)
+    {
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
+    }
+    
 }
