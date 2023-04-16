@@ -64,9 +64,9 @@ public class VideosController : Controller
             IpAddress = await _provider.GetIpAddress()
         };
         var result = await _mediator.Send(command);
-        if (!result.Succeeded)
-            return BadRequest(result);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 
     [HttpPut("ContentUpdate/{videoId}")]
@@ -89,8 +89,8 @@ public class VideosController : Controller
         var command = _mapper.Map<UpdateVideoCommand>(request);
         command.IpAddress = await _provider.GetIpAddress();
         var result = await _mediator.Send(command);
-        if (!result.Succeeded)
-            return BadRequest(result);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 }

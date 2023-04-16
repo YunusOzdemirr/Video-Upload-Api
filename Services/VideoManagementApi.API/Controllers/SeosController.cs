@@ -19,6 +19,7 @@ public class SeosController : Controller
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+
     public SeosController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
@@ -31,7 +32,11 @@ public class SeosController : Controller
     {
         var query = new GetSeosByVideoIdQuery() { VideoId = videoId };
         var result = await _mediator.Send(query);
-        return Ok(result);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        if (result.Data == null)
+            return NotFound(result);
+        return BadRequest(result);
     }
 
     [HttpPost]
@@ -40,7 +45,9 @@ public class SeosController : Controller
     {
         var command = _mapper.Map<CreateSeoCommand>(request);
         var result = await _mediator.Send(command);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 
     [HttpPut]
@@ -49,15 +56,16 @@ public class SeosController : Controller
     {
         var command = _mapper.Map<UpdateSeoCommand>(request);
         var result = await _mediator.Send(command);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
-    
+
     [HttpDelete]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Update(DeleteSeoByVideoIdCommand command)
+    public async Task<IActionResult> Delete(DeleteSeoByVideoIdCommand command)
     {
         var result = await _mediator.Send(command);
         return Ok(result);
     }
-    
 }

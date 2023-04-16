@@ -31,16 +31,27 @@ public class AdvertisementsController : Controller
     public async Task<IActionResult> Get(int id)
     {
         var query = new GetAdvertisementQuery() { Id = id };
-        return Ok(await _mediator.Send(query));
+
+        var result = await _mediator.Send(query);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        if (result.Data == null)
+            return NotFound();
+        return BadRequest();
     }
 
-    [HttpGet]
+    [HttpGet("{isActive}")]
     [ProducesResponseType(typeof(IResult<List<Advertisement>>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll(bool? isActive)
     {
-        var query = new GetAllAdvertisementsQuery();
-        return Ok(await _mediator.Send(query));
+        var query = new GetAllAdvertisementsQuery() { IsActive = isActive };
+        var result = await _mediator.Send(query);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        if (result.Data == null)
+            return NotFound();
+        return BadRequest();
     }
 
     [HttpPost]
@@ -49,32 +60,56 @@ public class AdvertisementsController : Controller
     public async Task<IActionResult> Create([FromForm] CreateAdvertisementRequest request)
     {
         var command = _mapper.Map<CreateAdvertisementCommand>(request);
-        return Ok(await _mediator.Send(command));
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest();
     }
-    
+
     [HttpPut("UpdateContent")]
-    [ProducesResponseType(typeof(IResult<List<Advertisement>>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> UpdateContent([FromForm]UpdateAdvertisementContentCommand command)
+    public async Task<IActionResult> UpdateContent([FromForm] UpdateAdvertisementContentCommand command)
     {
-        return Ok(await _mediator.Send(command));
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest();
     }
 
     [HttpPut]
-    [ProducesResponseType(typeof(IResult<List<Advertisement>>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Update([FromBody] UpdateAdvertisementRequest request)
     {
         var command = _mapper.Map<UpdateAdvertisementCommand>(request);
-        return Ok(await _mediator.Send(command));
+        var result = await _mediator.Send(command);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        return BadRequest();
     }
 
     [HttpPut("{id}/{type}")]
-    [ProducesResponseType(typeof(IResult<List<Advertisement>>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Update(int id, CountType type)
+    public async Task<IActionResult> AddCount(int id, CountType type)
     {
         var command = new AddCountAdvertisementCommand() { Id = id, CountType = type };
-        return Ok(await _mediator.Send(command));
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest();
+    }
+
+    [HttpDelete]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var command = new DeleteAdvertisementCommand() { Id = id };
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest();
     }
 }

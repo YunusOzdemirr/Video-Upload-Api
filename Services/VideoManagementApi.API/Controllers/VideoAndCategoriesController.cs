@@ -26,7 +26,11 @@ public class VideoAndCategoriesController : Controller
     {
         var query = new GetCategoriesByVideoIdQuery() { VideoId = videoId };
         var result = await _mediator.Send(query);
-        return Ok(result);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        if (result.Data == null)
+            return NotFound(result);
+        return BadRequest(result);
     }
 
     [HttpGet("GetVideos/{categoryId}")]
@@ -35,22 +39,30 @@ public class VideoAndCategoriesController : Controller
     {
         var query = new GetVideosByCategoryIdQuery() { CategoryId = categoryId };
         var result = await _mediator.Send(query);
-        return Ok(result);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        if (result.Data == null)
+            return NotFound(result);
+        return BadRequest(result);
     }
-    
+
     [HttpPost]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     public async Task<IActionResult> Create(CreateVideoAndCategoryCommand command)
     {
         var result = await _mediator.Send(command);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
-    
+
     [HttpDelete]
     [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
     public async Task<IActionResult> Delete(DeleteVideoAndCategoryCommand command)
     {
         var result = await _mediator.Send(command);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 }

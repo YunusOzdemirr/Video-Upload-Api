@@ -19,10 +19,11 @@ public class CommentsController : Controller
     private readonly IMapper _mapper;
     private readonly IClaimProvider _provider;
 
-    public CommentsController(IMediator mediator, IMapper mapper)
+    public CommentsController(IMediator mediator, IMapper mapper, IClaimProvider provider)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _provider = provider;
     }
 
     [HttpGet("{id}")]
@@ -31,16 +32,31 @@ public class CommentsController : Controller
     {
         var query = new GetCommentQuery() { Id = id };
         var result = await _mediator.Send(query);
-        return Ok(Result.SuccessAsync(result));
+        return Ok(result);
     }
 
-    [HttpGet("{videoId}")]
+    [HttpGet("GetByVideo/{videoId}")]
     [ProducesResponseType(typeof(IResult<List<Comment>>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetByVideoId(int videoId)
     {
         var query = new GetCommentsQuery() { VideoId = videoId };
         var result = await _mediator.Send(query);
-        return Ok(Result.SuccessAsync(result));
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(IResult<List<Comment>>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAll()
+    {
+        var query = new GetAllCommentsQuery();
+        var result = await _mediator.Send(query);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        if (result.Data == null)
+            return NotFound(result);
+        return BadRequest(result);
     }
 
     [HttpPost]
@@ -49,14 +65,6 @@ public class CommentsController : Controller
     {
         var command = _mapper.Map<CreateCommentCommand>(request);
         command.IpAddress = await _provider.GetIpAddress();
-        var result = await _mediator.Send(command);
-        return Ok(Result.SuccessAsync(result));
-    }
-
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
-    {
-        var command = new DeleteCommentCommand() { Id = id };
         var result = await _mediator.Send(command);
         if (result.Succeeded)
             return Ok(result);
@@ -70,6 +78,18 @@ public class CommentsController : Controller
         var command = _mapper.Map<ApproveCommentCommand>(request);
         command.IpAddress = await _provider.GetIpAddress();
         var result = await _mediator.Send(command);
-        return Ok(Result.SuccessAsync(result));
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var command = new DeleteCommentCommand() { Id = id };
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 }

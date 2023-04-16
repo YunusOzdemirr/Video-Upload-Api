@@ -1,5 +1,6 @@
 using AutoMapper;
 using VideoManagementApi.API.ViewModels.Requests;
+using VideoManagementApi.API.ViewModels.Responses;
 using VideoManagementApi.Application.Features.AdvertisementFeatures.Commands;
 using VideoManagementApi.Application.Features.CategoryFeatures.Commands;
 using VideoManagementApi.Application.Features.CommentFeatures.Commands;
@@ -7,6 +8,7 @@ using VideoManagementApi.Application.Features.LikeFeatures.Commands;
 using VideoManagementApi.Application.Features.SeoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoAndCategoryFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Commands;
+using VideoManagementApi.Domain.Entities;
 
 namespace VideoManagementApi.API.Mappings;
 
@@ -42,6 +44,7 @@ public class ViewModelMapping : Profile
     public void CreateLikeMapping()
     {
         CreateMap<CreateOrUpdateLikeRequest, CreateOrUpdateLikeCommand>();
+        CreateMap<Like, LikeResponse>();
     }
 
     public void CreateSeoMapping()

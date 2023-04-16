@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VideoManagementApi.Infrastructure.Context;
 
@@ -11,9 +12,10 @@ using VideoManagementApi.Infrastructure.Context;
 namespace VideoManagementApi.Infrastructure.Migrations
 {
     [DbContext(typeof(VideoContext))]
-    partial class VideoContextModelSnapshot : ModelSnapshot
+    [Migration("20230416002323_InitialCreate3")]
+    partial class InitialCreate3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -32,7 +32,11 @@ public class CategoriesController : Controller
     {
         var query = new GetCategoriesQuery();
         var result = await _mediator.Send(query);
-        return Ok(result);
+        if (result.Succeeded && result.Data != null)
+            return Ok(result);
+        if (result.Data == null)
+            return NotFound(result);
+        return BadRequest(result);
     }
 
     [HttpPost]
@@ -41,16 +45,9 @@ public class CategoriesController : Controller
     {
         var command = _mapper.Map<CreateCategoryCommand>(request);
         var result = await _mediator.Send(command);
-        return Ok(result);
-    }
-
-    [HttpDelete]
-    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Delete(int id)
-    {
-        var command = new DeleteCategoryCommand() { Id = id };
-        var result = await _mediator.Send(command);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 
     [HttpPut]
@@ -58,7 +55,9 @@ public class CategoriesController : Controller
     public async Task<IActionResult> Update([FromForm] UpdateCategoryCommand command)
     {
         var result = await _mediator.Send(command);
-        return Ok(result);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 
     [HttpPut("AddCount/{id}")]
@@ -67,6 +66,20 @@ public class CategoriesController : Controller
     public async Task<IActionResult> AddCount(int id)
     {
         var command = new AddCountCategoryCommand() { Id = id };
-        return Ok(await _mediator.Send(command));
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
+    }
+
+    [HttpDelete]
+    [ProducesResponseType(typeof(IResult), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var command = new DeleteCategoryCommand() { Id = id };
+        var result = await _mediator.Send(command);
+        if (result.Succeeded)
+            return Ok(result);
+        return BadRequest(result);
     }
 }

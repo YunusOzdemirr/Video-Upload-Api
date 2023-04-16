@@ -32,7 +32,7 @@ public class AdvertisementService : IAdvertisementService
         await _repository.AddAsync(advertisement, cancellationToken);
         return await Result<int>.SuccessAsync(advertisement.Id);
     }
-    
+
     public async Task<IResult<int>> UpdateUploadAsync(UpdateAdvertisementContentCommand updateAdvertisementCommand,
         CancellationToken cancellationToken)
     {
@@ -60,7 +60,7 @@ public class AdvertisementService : IAdvertisementService
         await _repository.UpdateAsync(advertisement, cancellationToken);
         return await Result<int>.SuccessAsync(advertisement.Id);
     }
-    
+
     public async Task<IResult> UpdateAsync(UpdateAdvertisementCommand updateAdvertisementCommand,
         CancellationToken cancellationToken)
     {
@@ -77,6 +77,8 @@ public class AdvertisementService : IAdvertisementService
         CancellationToken cancellationToken)
     {
         var advertisements = await _repository.GetAllAsync(cancellationToken: cancellationToken);
+        if (getAdvertisementsQuery.IsActive.HasValue)
+            advertisements.Where(a => a.IsActive == getAdvertisementsQuery.IsActive);
         return await Result<List<Advertisement>>.SuccessAsync(advertisements);
     }
 
