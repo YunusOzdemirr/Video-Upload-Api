@@ -21,6 +21,7 @@ namespace VideoManagementApi.Infrastructure.Context
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<VideoAndCategory> VideoAndCategories { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         //public DbSet<User> Users { get; set; }
 
@@ -40,6 +41,7 @@ namespace VideoManagementApi.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new AdvertisementConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new VideoAndCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ReportConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 

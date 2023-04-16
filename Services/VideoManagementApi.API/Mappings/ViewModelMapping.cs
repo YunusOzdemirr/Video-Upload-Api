@@ -5,6 +5,8 @@ using VideoManagementApi.Application.Features.AdvertisementFeatures.Commands;
 using VideoManagementApi.Application.Features.CategoryFeatures.Commands;
 using VideoManagementApi.Application.Features.CommentFeatures.Commands;
 using VideoManagementApi.Application.Features.LikeFeatures.Commands;
+using VideoManagementApi.Application.Features.ReportFeatures;
+using VideoManagementApi.Application.Features.ReportFeatures.Commands;
 using VideoManagementApi.Application.Features.SeoFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoAndCategoryFeatures.Commands;
 using VideoManagementApi.Application.Features.VideoFeatures.Commands;
@@ -23,6 +25,7 @@ public class ViewModelMapping : Profile
         CreateSeoMapping();
         CreateVideoMapping();
         CreateVideoAndCategoryMapping();
+        CreateReportMapping();
     }
 
     public void CreateAdvertisementMapping()
@@ -63,5 +66,10 @@ public class ViewModelMapping : Profile
     public void CreateVideoAndCategoryMapping()
     {
         CreateMap<CreateVideoAndCategoryInVideoUpdateRequest, CreateVideoAndCategoryCommand>();
+    }
+
+    public void CreateReportMapping()
+    {
+        CreateMap<CreateReportRequest, CreateReportCommand>();
     }
 }

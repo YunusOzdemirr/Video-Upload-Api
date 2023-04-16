@@ -27,6 +27,7 @@
         <None Remove="Mapping\" />
         <None Remove="Validations\" />
         <None Remove="DomainEventHandlers\" />
+        <None Remove="Interfaces\Mapping\**" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Behaviors\" />
@@ -36,9 +37,6 @@
         <Folder Include="Interfaces\" />
         <Folder Include="Interfaces\Context\" />
         <Folder Include="Exceptions\" />
-        <Folder Include="Interfaces\Mapping">
-          <Link>Mapping\Mapping</Link>
-        </Folder>
         <Folder Include="Validations\" />
         <Folder Include="DomainEventHandlers\" />
     </ItemGroup>
@@ -51,5 +49,11 @@
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.2" />
         <PackageReference Include="AutoMapper" Version="11.0.1" />
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="Interfaces\Mapping\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Remove="Interfaces\Mapping\**" />
     </ItemGroup>
 </Project>

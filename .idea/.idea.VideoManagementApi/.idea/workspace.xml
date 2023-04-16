@@ -11,23 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/DeleteAdvertisementCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/DeleteAdvertisementCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CommentFeatures/Queries/GetAllCommentsQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/LikeResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Commands/CreateReportCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Commands/CreateReportCommandHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Queries/GetReportsQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/ReportFeatures/Queries/GetReportsQueryHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Interfaces/Repositories/IReportRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Mappings/ReportMapping.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Entities/Report.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Domain/Enums/ReportType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/Configurations/ReportConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Repositories/ReportRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/ReportsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Requests/CreateReportRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Commands/UpdateAdvertisementCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAllAdvertisementsQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/AdvertisementFeatures/Queries/GetAllAdvertisementsQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CommentFeatures/Queries/GetCommentsQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Features/CommentFeatures/Queries/GetCommentsQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/VideoContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Migrations/VideoContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Services/AdvertisementService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/AdvertisementsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/AdvertisementsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CategoriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CategoriesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CommentsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/CommentsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/LikesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/LikesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/SeosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/SeosController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideoAndCategoriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideoAndCategoriesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Controllers/VideosController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/VideoManagementApi.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Infrastructure/Context/VideoContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +170,7 @@
       <workItem from="1680425219176" duration="11960000" />
       <workItem from="1680882163809" duration="1276000" />
       <workItem from="1680995951775" duration="84000" />
-      <workItem from="1681593457170" duration="10746000" />
+      <workItem from="1681593457170" duration="12490000" />
     </task>
     <servers />
   </component>
