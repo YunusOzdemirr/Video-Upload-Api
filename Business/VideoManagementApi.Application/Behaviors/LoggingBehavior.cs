@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.Reflection;
+using System.Text.Json;
+using Newtonsoft.Json;
 using VideoManagementApi.Application.Interfaces.Services;
 
 namespace VideoManagementApi.Application.Behaviors
@@ -21,18 +24,29 @@ namespace VideoManagementApi.Application.Behaviors
         {
             //Request
             _logger.LogInformation("Executing {Name} operation...", typeof(TRequest).Name);
-            Type myType = request.GetType();
+            //Type myType = request.GetType();
             //Get request values
-            IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
-            foreach (PropertyInfo prop in props)
-            {
-                var propValue = prop.GetValue(request, null)!;
-                _logger.LogInformation("IpAddress: {IpAddress}, Property: {Property} : {@Value}", prop.Name, propValue,
-                    await _claimProvider.GetIpAddress());
-            }
-
+            //IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
+            // foreach (PropertyInfo prop in props)
+            // {
+            //     var propValue = prop.GetValue(request, null)!;
+            //     var ipAddress = await _claimProvider.GetIpAddress();
+            //     _logger.LogInformation("IpAddress: {IpAddress} Date: {Datetime}, Property: {Property} : {@Value}",
+            //         ipAddress,
+            //         DateTime.Now.ToString(CultureInfo.InvariantCulture), prop.Name, propValue
+            //     );
+            // }
+            
             //Response
             var response = await next();
+            var logModel = new Log()
+            {
+                RequestJson = request,
+                ResponseJson = response,
+                RequestDate = DateTime.Now.ToString(),
+                IpAddress = await _claimProvider.GetIpAddress(),
+            };
+            _logger.LogInformation("Request Detail:  {DetailJson}", JsonConvert.SerializeObject(logModel));
             return response;
         }
     }

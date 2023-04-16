@@ -19,7 +19,7 @@ public static class ServiceRegistration
         services.AddDbContext<VideoContext>(opt =>
         {
             opt.UseSqlServer(configuration["VideoConnectionString"]);
-            opt.EnableSensitiveDataLogging();
+            opt.EnableSensitiveDataLogging(true);
         });
 
         #region Repositories

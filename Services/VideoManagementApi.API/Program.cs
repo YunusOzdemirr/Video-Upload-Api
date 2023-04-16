@@ -132,7 +132,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services
     .AddLogging(configure => configure.AddConsole());
 var app = builder.Build();
+
 app.UseMiddleware<ExceptionMiddleware>();
+var loggerFactory = app.Services.GetService<ILoggerFactory>();
+loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());    
+
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
