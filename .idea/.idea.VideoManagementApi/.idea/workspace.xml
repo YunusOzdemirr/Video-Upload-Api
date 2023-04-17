@@ -12,6 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/serilog.json" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Configurations/serilog.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +67,10 @@
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.VideoManagementApi.API">
+    <configuration name="Publish VideoManagementApi.API to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/Services/VideoManagementApi.API/bin/Release/net6.0/publish" target_framework="net6.0" uuid_high="-6777332731944876374" uuid_low="-7477410274337918906" />
+      <method v="2" />
+    </configuration>
     <configuration name="VideoManagementApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Services/VideoManagementApi.API/VideoManagementApi.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -156,7 +164,7 @@
       <workItem from="1680882163809" duration="1276000" />
       <workItem from="1680995951775" duration="84000" />
       <workItem from="1681593457170" duration="14569000" />
-      <workItem from="1681681576356" duration="1712000" />
+      <workItem from="1681681576356" duration="4075000" />
     </task>
     <servers />
   </component>
@@ -256,6 +264,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs" initialLine="25" containingFunctionPresentation="method 'Handle'">
+            <startOffsets>
+              <option value="914" />
+            </startOffsets>
+            <endOffsets>
+              <option value="993" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs</url>
+          <line>140</line>
+          <properties documentPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" initialLine="140" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="5451" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5553" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -13,7 +13,6 @@
                 }
             }
         ],
-
         "Properties": {
             "Application": "MicroService"
         }

@@ -2,6 +2,9 @@
 using System.Text.Json.Serialization;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -128,6 +131,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
+builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"/Api-Logs/"))
+    .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
+    {
+        EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
+        ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
+    });
+
+var trimmedContentRootPath = builder.Environment.ContentRootPath.TrimEnd(Path.DirectorySeparatorChar);
+builder.Services.AddDataProtection()
+    .SetApplicationName(trimmedContentRootPath);
+
 
 builder.Services
     .AddLogging(configure => configure.AddConsole());
@@ -141,6 +155,12 @@ loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials());
 
 if (builder.Environment.ContentRootPath.Contains(@"\"))
     if (!Directory.Exists(builder.Environment.ContentRootPath + @"\wwwroot" + @"\Uploads"))
