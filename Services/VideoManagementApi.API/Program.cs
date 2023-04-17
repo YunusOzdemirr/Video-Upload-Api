@@ -157,9 +157,10 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseCors(x => x
+    .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader()
-    .SetIsOriginAllowed(origin => true) // allow any origin
+    //.SetIsOriginAllowed(origin => true) // allow any origin
     .AllowCredentials());
 
 if (builder.Environment.ContentRootPath.Contains(@"\"))
