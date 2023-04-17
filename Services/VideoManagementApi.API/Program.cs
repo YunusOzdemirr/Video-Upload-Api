@@ -97,6 +97,11 @@ builder.Services.AddSwaggerGen(c =>
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -149,19 +154,23 @@ var app = builder.Build();
 
 app.UseMiddleware<ExceptionMiddleware>();
 var loggerFactory = app.Services.GetService<ILoggerFactory>();
-loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());    
+loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString()); 
+
+// app.UseCors(builder => builder
+//     .WithOrigins("http:localhost:3005")
+//     .AllowAnyHeader()
+//     .AllowAnyMethod()
+//     .SetIsOriginAllowed((host) => true)
+//     .AllowCredentials());
+
+
 
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseCors(x => x
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    //.SetIsOriginAllowed(origin => true) // allow any origin
-    .AllowCredentials());
+
 
 if (builder.Environment.ContentRootPath.Contains(@"\"))
     if (!Directory.Exists(builder.Environment.ContentRootPath + @"\wwwroot" + @"\Uploads"))
@@ -180,7 +189,10 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseHttpsRedirection();
+app.UseRouting();
+app.UseCors("corsapp");
 app.UseAuthorization();
+
 
 app.MapControllers();
 
