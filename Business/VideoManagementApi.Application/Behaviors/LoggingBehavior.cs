@@ -36,7 +36,10 @@ namespace VideoManagementApi.Application.Behaviors
             //         DateTime.Now.ToString(CultureInfo.InvariantCulture), prop.Name, propValue
             //     );
             // }
-            
+            var jsonSerializeOption = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
             //Response
             var response = await next();
             var logModel = new Log()
@@ -46,7 +49,9 @@ namespace VideoManagementApi.Application.Behaviors
                 RequestDate = DateTime.Now.ToString(),
                 IpAddress = await _claimProvider.GetIpAddress(),
             };
-            _logger.LogInformation("Request Detail:  {DetailJson}", JsonConvert.SerializeObject(logModel));
+
+            _logger.LogInformation("Request Detail:  {DetailJson}",
+                JsonConvert.SerializeObject(logModel, jsonSerializeOption));
             return response;
         }
     }

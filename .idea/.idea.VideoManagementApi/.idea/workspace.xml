@@ -11,7 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/CommentResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/LikesResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/SeoResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/VideoResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +37,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c11a2aa831d04e8eba36f4248c870ea110e00/20/12f28691/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cbc191c5526c45f0854550028a618dd3d000/dc/acc1698c/IRequestHandler`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1a1937df39d3ec627c7164bbf98a116ae95f9a83a3c8cd95816dcaf26bada9/CorsPolicyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4d966927d95638cbe347e5a2e0dfa3314c344783daae52267d3abe8248c38789/JsonWriter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/664ec06dfe9e907a2e8e36384a8df7f162a6ff658fe1c344c172d92a15e134df/PhysicalFileProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a162845438571b33c70b6689ad639282c1afed571d77277da548f411819b6/FormFile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bcae882191178c8bf44c9add4cdeffa874a7afe629e3e56e9280f5896e953425/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
@@ -162,7 +169,7 @@
       <workItem from="1680882163809" duration="1276000" />
       <workItem from="1680995951775" duration="84000" />
       <workItem from="1681593457170" duration="14569000" />
-      <workItem from="1681681576356" duration="5505000" />
+      <workItem from="1681681576356" duration="9107000" />
     </task>
     <servers />
   </component>
@@ -249,32 +256,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs</url>
-          <line>31</line>
-          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs" initialLine="28" containingFunctionPresentation="method 'Handle'">
-            <startOffsets>
-              <option value="1252" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1298" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs</url>
-          <line>25</line>
-          <properties documentPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs" initialLine="25" containingFunctionPresentation="method 'Handle'">
-            <startOffsets>
-              <option value="914" />
-            </startOffsets>
-            <endOffsets>
-              <option value="993" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

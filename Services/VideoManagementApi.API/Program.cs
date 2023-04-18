@@ -39,15 +39,16 @@ builder.Services.AddAutoMapper(typeof(ViewModelMapping));
 builder.Services.AddServiceDiscoveryRegistration(builder.Configuration);
 
 builder.Services.AddControllersWithViews()
-    .AddNewtonsoftJson(options =>
-        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    .AddNewtonsoftJson(options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; }
     );
+
 builder.Services.AddControllers()
     .AddJsonOptions(opts =>
     {
         var enumConverter = new JsonStringEnumConverter();
         opts.JsonSerializerOptions.Converters.Add(enumConverter);
-        opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull;
+        opts.JsonSerializerOptions.DefaultIgnoreCondition =
+            JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull;
     });
 
 
@@ -97,11 +98,6 @@ builder.Services.AddSwaggerGen(c =>
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
-{
-    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-}));
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -136,17 +132,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"/Api-Logs/"))
-    .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
-    {
-        EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
-        ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
-    });
 
-var trimmedContentRootPath = builder.Environment.ContentRootPath.TrimEnd(Path.DirectorySeparatorChar);
-builder.Services.AddDataProtection()
-    .SetApplicationName(trimmedContentRootPath);
+// builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"/Api-Logs/"))
+//     .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
+//     {
+//         EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
+//         ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
+//     });
 
+// var trimmedContentRootPath = builder.Environment.ContentRootPath.TrimEnd(Path.DirectorySeparatorChar);
+// builder.Services.AddDataProtection()
+//     .SetApplicationName(trimmedContentRootPath);
 
 builder.Services
     .AddLogging(configure => configure.AddConsole());
@@ -154,23 +150,17 @@ var app = builder.Build();
 
 app.UseMiddleware<ExceptionMiddleware>();
 var loggerFactory = app.Services.GetService<ILoggerFactory>();
-loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString()); 
+loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());
 
-// app.UseCors(builder => builder
-//     .WithOrigins("http:localhost:3005")
-//     .AllowAnyHeader()
-//     .AllowAnyMethod()
-//     .SetIsOriginAllowed((host) => true)
-//     .AllowCredentials());
-
-
-
-
+app.UseCors(builder => builder
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .SetIsOriginAllowed((host) => true)
+    .AllowCredentials());
+    
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
-
-
 
 if (builder.Environment.ContentRootPath.Contains(@"\"))
     if (!Directory.Exists(builder.Environment.ContentRootPath + @"\wwwroot" + @"\Uploads"))
@@ -189,10 +179,7 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseHttpsRedirection();
-app.UseRouting();
-app.UseCors("corsapp");
 app.UseAuthorization();
-
 
 app.MapControllers();
 

@@ -42,12 +42,15 @@ public class ViewModelMapping : Profile
     public void CreateCommentMapping()
     {
         CreateMap<CreateCommentRequest, CreateCommentCommand>();
+        CreateMap<Comment, CommentResponse>();
+
     }
 
     public void CreateLikeMapping()
     {
         CreateMap<CreateOrUpdateLikeRequest, CreateOrUpdateLikeCommand>();
         CreateMap<Like, LikeResponse>();
+        CreateMap<Like, LikesResponse>();
     }
 
     public void CreateSeoMapping()
@@ -55,6 +58,8 @@ public class ViewModelMapping : Profile
         CreateMap<CreateSeoRequest, CreateSeoCommand>();
         CreateMap<UpdateSeoRequest, UpdateSeoCommand>();
         CreateMap<CreateSeoInUpdateVideoRequest, CreateSeoCommand>();
+        CreateMap<Seo, SeoResponse>();
+
     }
 
     public void CreateVideoMapping()
