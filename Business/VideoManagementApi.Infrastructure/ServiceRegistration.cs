@@ -30,6 +30,7 @@ public static class ServiceRegistration
         services.AddScoped<ISeoRepository, SeoRepository>();
         services.AddScoped<IVideoRepository, VideoRepository>();
         services.AddScoped<IVideoAndCategoryRepository, VideoAndCategoryRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IReportRepository, ReportRepository>();
         #endregion
 
