@@ -153,10 +153,11 @@ var loggerFactory = app.Services.GetService<ILoggerFactory>();
 loggerFactory.AddFile(builder.Configuration["Logging:LogFilePath"].ToString());
 
 app.UseCors(builder => builder
+    .WithOrigins("*")
     .AllowAnyHeader()
     .AllowAnyMethod()
-    .SetIsOriginAllowed((host) => true)
-    .AllowCredentials());
+    .SetIsOriginAllowed((host) => true));
+    //.AllowCredentials());
     
 // Configure the HTTP request pipeline.
 app.UseSwagger();

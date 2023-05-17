@@ -11,13 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00adc10b-bede-4c56-b8f6-386ff3d118fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/CommentResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/LikesResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/SeoResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/ViewModels/Responses/VideoResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VideoManagementApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Business/VideoManagementApi.Application/Behaviors/LoggingBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Mappings/ViewModelMapping.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/VideoManagementApi.API/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +162,7 @@
       <workItem from="1680882163809" duration="1276000" />
       <workItem from="1680995951775" duration="84000" />
       <workItem from="1681593457170" duration="14569000" />
-      <workItem from="1681681576356" duration="9107000" />
+      <workItem from="1681681576356" duration="9623000" />
     </task>
     <servers />
   </component>
