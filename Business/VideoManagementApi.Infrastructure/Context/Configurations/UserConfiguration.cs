@@ -11,7 +11,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasKey(a => a.Id);
         builder.Property(a => a.UserName).IsRequired();
         builder.Property(a => a.FirstName).IsRequired();
-        builder.Property(a => a.Password).IsRequired();
+        builder.Property(a => a.PasswordSalt).IsRequired();
+        builder.Property(a => a.PasswordHash).IsRequired();
         builder.ToTable("Users");
     }
 }
