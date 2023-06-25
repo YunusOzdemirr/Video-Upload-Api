@@ -19,7 +19,6 @@
         <Folder Include="Common\" />
         <Folder Include="Contracts\" />
         <Folder Include="Entities\" />
-        <Folder Include="Enums\" />
         <Folder Include="Events\" />
         <Folder Include="AggregateModels\" />
     </ItemGroup>
