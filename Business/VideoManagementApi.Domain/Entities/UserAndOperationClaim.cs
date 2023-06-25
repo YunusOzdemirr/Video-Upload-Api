@@ -5,8 +5,8 @@ namespace VideoManagementApi.Domain.ConfigureEntities;
 
 public class UserAndOperationClaim : IEntity
 {
-    public Guid UserId { get; set; }
+    public int UserId { get; set; }
     public User User { get; set; }
-    public Guid OperationClaimId { get; set; }
+    public int OperationClaimId { get; set; }
     public OperationClaim OperationClaim { get; set; }
 }

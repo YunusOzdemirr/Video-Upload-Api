@@ -6,6 +6,6 @@ public class AccessToken : BaseEntity, IEntity
 {
     public string Token { get; set; }
     public bool IsValid { get; set; }
-    public Guid? UserId { get; set; }
+    public int? UserId { get; set; }
     public User? User { get; set; }
 }
